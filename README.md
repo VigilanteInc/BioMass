@@ -10,16 +10,26 @@ Models = Roboto
 Change Log:
 
 Chemical reactions scienceified.
+
 Play Balancing.
+
 Resource Definitions Updated and standardized...give or take.
+
 Cross-Mod resource support strengthened
 
+
 New parts added
+
   -Fermenter
+  
   -Refinery
+  
   -Compact Inflatable Greenhouse
+  
   -Centrifuge
+  
   -Additional Supply Tanks
+  
   -compressors
   
 
