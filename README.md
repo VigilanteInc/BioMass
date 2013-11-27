@@ -1,11 +1,12 @@
-BioMass Science+ Update
+BioMass Science+... Updated 27.11.13
+Creators:
 
 Science = seanth
 
 Models = Roboto
 
-=======
-27.11.13
+===========================
+
 
 Change Log:
 
