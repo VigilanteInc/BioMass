@@ -6,11 +6,25 @@ Science = seanth
 
 Models = Roboto
 
+
+Notes:
+
+All parts should now show up in career mode, but for the time being it is not recommended that the mod be used in career mode. We are still testing and fiddling with parts, so if any major changes end up being made it could break your career mode craft. I suggest playing with it in sandbox for now to help us tweak and bug hunt.
+
 ===========================
 
 
 Change Log:
+3.12.13
+--------------------
+All parts should now show up in career mode tech tree, but i suggest usign sandbox mode for now whiel we test and bug hunt.
 
+Node corrections.
+
+New Fermenter Model.
+
+27.11.13
+------------
 Chemical reactions scienceified.
 
 Play Balancing.
