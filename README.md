@@ -17,7 +17,7 @@ All parts should now show up in career mode, but for the time being it is not re
 Change Log:
 3.12.13
 --------------------
-All parts should now show up in career mode tech tree, but i suggest usign sandbox mode for now whiel we test and bug hunt.
+All parts should now show up in career mode tech tree, but i suggest using sandbox mode for now while we test and bug hunt.
 
 Node corrections.
 
