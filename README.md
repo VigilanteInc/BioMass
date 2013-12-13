@@ -12,8 +12,11 @@ Models = Roboto
 Change Log (2013-12-12):
 
    -Chemical reactions scienceified.
+
    -Play balancing(i.e. removed some things)
+
    -Resource Definitions Updated and standardized...give or take.
+
    -Cross-Mod resource support strengthened (TAC Life Support, IonCross)
 
 
@@ -21,20 +24,32 @@ New parts added
 
 
   -Compact Inflatable Greenhouse (2013.11.27) 
+
   -Additional Supply Tanks (2013.11.27)
+
   -compressors (O2, CO2, H2) (2013.11.27)
+
   -Science experiments (2013.11.27)
+
   -Cryogenic Air Seperator (2013.12.12)
+
   -Algae Greenhouse (2013.12.12)
+
   -BioReactor (replaces both the fermenter and refinery)(2013.12.12)
+
   -KoylentMaker (2013.12.12)
+
   -Composter (2013.12.12)
+
   -Seed Bank (2013.12.12)
+
   -Snack Containers (2013.12.12)
 
 Removed:
   -Fermenter (2013.12.12)  
+
   -Refinery (2013.12.12)
+  
   -Centrifuge (2013.12.12)
   
 
