@@ -8,6 +8,8 @@ Models = Roboto
 
 ===========================
 
+IMPORTANT: This mod requires Kethane's MMI_Kethane.dll
+
 
 Change Log (2013-12-12):
 
