@@ -11,8 +11,11 @@ Models = Roboto
 IMPORTANT: This mod requires Kethane's MMI_Kethane.dll
 
 
-Change Log (2013-12-12):
+Change Log: 
+(2014-01-16):
+   ---Fixed attachment rules for Bio Containment Study part
 
+(2013-12-12):
    ---Chemical reactions scienceified.
 
    ---Play balancing(i.e. removed some things)
