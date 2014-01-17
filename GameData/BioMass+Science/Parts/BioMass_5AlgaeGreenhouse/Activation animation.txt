@@ -1,1 +1,0 @@
-The flaps on the side should open when activated the way this config is set. do you still want a light? we may need to play aroudn a bit to get a second animation going on there. 
