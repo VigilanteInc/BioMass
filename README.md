@@ -1,4 +1,4 @@
-BioMass Science+... Updated 2013.12.12
+BioMass Science+... Updated 2014.01.16
 
 Creators:
 
@@ -11,8 +11,6 @@ Models = Roboto
 IMPORTANT: This mod requires Kethane's MMI_Kethane.dll (http://mirror.nabaal.net/files/kethane/Kethane-0.8.2.zip)
 
 IMPORTANT AS WELL: If you would like to change difficulty levels, you need Module Manager installed (https://github.com/Ialdabaoth/ModuleManager/blob/master/ModuleManager.dll?raw=true)
-
-<<<<<<< HEAD
 
 Change Log:
 
