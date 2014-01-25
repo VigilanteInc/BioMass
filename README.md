@@ -14,18 +14,30 @@ IMPORTANT AS WELL: If you would like to change difficulty levels, you need Modul
 
 Change Log:
 
+(2014-01-24)
+
+   ---Fixed tech nodes for greenhouses
+
+(2014-01-23)
+
+   ---Fixed Food and Waste densities and flowMode so they will play nice with TAC Life Support
+
+   ---Added ability to collect science data from the biology study parts
+   
+   ---Rebalanced BioReactor (only exists as 'Normal' mode)
+   
+   ---New Greenhouse: Aquatic Greenhouse (model still being worked on)
+   
+   ---New Greenhouse: small plant greenhouse (only exists as 'Normal' mode)
+
 (2014-01-16)
 
    ---Difficulty levels worked in for Greenhouse and Compressors. Easy, Normal, Hard. Each difficulty level produces different amounts of O2, total biomass, and grows at different rates.
 
    ---Fixed attachment of the large science experiment.
 
-(2013-12-12)
-=======
-Change Log: 
 (2014-01-16):
    ---Fixed attachment rules for Bio Containment Study part
->>>>>>> 917baf5901455b954a76275fcaea6be31adcda75
 
 (2013-12-12):
    ---Chemical reactions scienceified.
@@ -35,41 +47,6 @@ Change Log:
    ---Resource Definitions Updated and standardized...give or take.
 
    ---Cross-Mod resource support strengthened (TAC Life Support, IonCross)
-
-
-New parts added
-
-
-  ---Compact Inflatable Greenhouse (2013.11.27) 
-
-  ---Additional Supply Tanks (2013.11.27)
-
-  ---compressors (O2, CO2, H2) (2013.11.27)
-
-  ---Science experiments (2013.11.27)
-
-  ---Cryogenic Air Seperator (2013.12.12)
-
-  ---Algae Greenhouse (2013.12.12)
-
-  ---BioReactor (replaces both the fermenter and refinery)(2013.12.12)
-
-  ---KoylentMaker (2013.12.12)
-
-  ---Composter (2013.12.12)
-
-  ---Seed Bank (2013.12.12)
-
-  ---Snack Containers (2013.12.12)
-
-Removed:
-  ---Fermenter (2013.12.12)  
-
-  ---Refinery (2013.12.12)
-
-  ---Centrifuge (2013.12.12)
-  
-
 
 
 
