@@ -14,6 +14,10 @@ IMPORTANT AS WELL: If you would like to change difficulty levels, you need Modul
 
 Change Log:
 
+(2014-01-24)
+
+   ---Fixed tech nodes for greenhouses
+
 (2014-01-23)
 
    ---Fixed Food and Waste densities and flowMode so they will play nice with TAC Life Support
