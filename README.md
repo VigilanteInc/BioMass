@@ -12,7 +12,28 @@ IMPORTANT: This mod requires Kethane's MMI_Kethane.dll (http://mirror.nabaal.net
 
 IMPORTANT AS WELL: If you would like to change difficulty levels, you need Module Manager installed (https://github.com/Ialdabaoth/ModuleManager/blob/master/ModuleManager.dll?raw=true)
 
+To do shortlist:
+   ---TEST!!!
+   ---Work on food production
+   ---Finish aquatic greenhouse (difficulties, animations, etc)
+   ---Add difficulties to small greenhouses
+   ---Add small aquatic greenhouse
+   ---Make sure tanks hold reasonable amounts
+
+To do midlist:
+   ---Add science experiments to small greenhouses
+   ---Add real science results to science parts (this is how plants grow and this is what you need)
+
+To do long-term:
+   ---Better generator so things keep producing/consuming when not selected
+   ---Maybe even do real plant growth modeling (self promotion: http://www.amjbot.org/content/96/8/1430.short)
+
 Change Log:
+
+(2014-01-28)
+   ---Updated in-line microbiome (only 'Normal' mode)
+   ---?fixed small plant greenhouse resizing?
+   ---Changed "waste" resource density (need to post new TAC-LS setup values)
 
 (2014-01-24)
 
