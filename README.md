@@ -30,9 +30,12 @@ To do long-term:
 
 Change Log:
 
+(2014-01-31)
+   ---Fixed seed production problem (hopefully)
+
 (2014-01-28)
    ---Updated in-line microbiome (only 'Normal' mode)
-   ---?fixed small plant greenhouse resizing?
+   ---Fixed small plant greenhouse resizing
    ---Changed "waste" resource density (need to post new TAC-LS setup values)
 
 (2014-01-24)
