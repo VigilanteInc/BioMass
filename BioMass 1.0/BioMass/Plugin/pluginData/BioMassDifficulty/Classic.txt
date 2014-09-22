@@ -1,0 +1,3 @@
+DifficultySetting{
+	setting = classic
+}
