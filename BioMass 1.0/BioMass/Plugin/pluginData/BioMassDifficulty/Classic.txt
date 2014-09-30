@@ -1,3 +1,0 @@
-DifficultySetting{
-	setting = classic
-}

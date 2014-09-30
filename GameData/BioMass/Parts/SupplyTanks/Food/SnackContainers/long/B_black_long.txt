@@ -1,0 +1,62 @@
+//From http://forum.kerbalspaceprogram.com/threads/43840-Hab-Hub-%28and-other-strange-things%29
+//Also from http://www.mediafire.com/?n34ph4xxyf0f6mk
+
+PART
+{
+    // --- general parameters ---
+    name = B_black_long
+    module = Part
+    author = z
+
+    mesh = B_black_long.mu
+
+    scale = 1
+    rescaleFactor = 0.85
+
+    // --- node definitions ---
+    node_attach = 0.0, -0.60, 0.0 , 0.0, 0.0, 1.0
+
+    //node_stack_top    = 0, 0.72, 0, 0, -1, 0, 1
+    //node_stack_bottom = 0, -0.72, 0, 0, 1, 0, 1
+
+    node_stack_right =  1.125, 0, 0, -1, 0, 0, 1
+    node_stack_left  = -1.125, 0, 0, 1, 0, 0, 1
+   
+	
+    // --- editor parameters ---
+    TechRequired = specializedElectrics
+    entryCost = 12200
+    cost = 3800
+    
+    category = -1
+    subcategory = 0
+    title = Tripple Size Snack Container
+
+    manufacturer = Sklifosovsky Labs
+    description = Guaranteed to store enough food for even the hungriest Kerbal, "The Tripple Size Snack Container is for Tripple Sized Appetites"™
+
+    // attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
+    attachRules = 1,1,1,1,0
+    
+
+       
+        // --- standard part parameters ---
+    mass = 0.812
+    dragModelType = default
+    maximum_drag = 0.2
+    minimum_drag = 0.3
+    angularDrag = 2
+    crashTolerance = 20
+    maxTemp = 3400
+    fuelCrossFeed = True
+    breakingForce = 1215
+    breakingTorque = 1215
+
+    RESOURCE
+    {
+        name = Food
+        amount = 0
+        maxAmount = 2.0
+    }
+
+}

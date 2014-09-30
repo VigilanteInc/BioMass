@@ -7,7 +7,7 @@ Science = seanth
 Models = Roboto
 
 ===========================
-Major reworking of hoe BioMass works:
+Major reworking of how BioMass works:
 
 1.) Brand new custom dlls that allow BioMass parts to continue to work even when ship are not selected, and a means of changing difficulty in-game.
 
