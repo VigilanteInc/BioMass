@@ -1,7 +1,7 @@
 ﻿{
 	"NAME": "BioMass",
-	"URL":"https://github.com/VigilanteInc/BioMass/tree/master/GameData/BioMass/BioMass.version"
-	"DOWNLOAD":"https://github.com/VigilanteInc/BioMass/releases"
+	"URL":"https://github.com/VigilanteInc/BioMass/tree/master/GameData/BioMass/BioMass.version",
+	"DOWNLOAD":"https://github.com/VigilanteInc/BioMass/releases",
 	"GITHUB":{
 		"USERNAME":"VigilanteInc",
 		"REPOSITORY":"BioMass",
@@ -10,7 +10,7 @@
 	"VERSION":    
 	{
 	    "MAJOR":0,
-	    "MINOR":1,
+	    "MINOR":2,
 	    "PATCH":0,
 	    "BUILD":0
 	},
