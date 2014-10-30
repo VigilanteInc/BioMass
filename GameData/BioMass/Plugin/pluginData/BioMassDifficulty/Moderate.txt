@@ -193,6 +193,11 @@ DifficultySetting{
 
 
 //*****Greenhouses
+@PART[BioMassExpandingGreenhouse
+{
+  @category = Utility
+}
+
 @PART[BioMass_Blue_Greenhouse]
 {  
   @TechRequired = advElectrics

@@ -1,4 +1,4 @@
-BioMass WIP: Updated 2014.09.29
+BioMass WIP: Updated 2014.10.30
 
 Creators:
 
@@ -12,9 +12,17 @@ Major reworking of how BioMass works:
 
 1.) Brand new custom dlls that allow BioMass parts to continue to work even when ship are not selected, and a means of changing difficulty in-game.
 
-2.) New parts, imporved animations, etc.
+2.) New parts, improved animations, etc.
 
 Lots of play balancing left to do!
+
+Update 0.2.2.0 (2014.10.30)
+    -New Koylent maker model. 
+    -New greenhouse. Clone of how the blue greenhouse works. Needs to be improved
+    -New science part. Needs experiments defined.
+
+Update 0.2.1.0 (2014.10.02)
+	-Removed 2nd Goo Experiment part appearing in VAB/SPH
 
 Update 0.2.0.0 (2014.09.29):
 	-Added version file for Automatic Version Control (AVC) mod integration (suggested by Bit Fiddler)
@@ -25,3 +33,5 @@ Update 0.2.0.0 (2014.09.29):
 	-Most "Easy" play mode parts shifted into Utility vs Classic having them in "Science".
 	-Some "Easy" play mode parts have slightly different description compared to "Classic" to make it easier to go from Easy to Hard.
     -Misc spelling and other fixes
+
+    
