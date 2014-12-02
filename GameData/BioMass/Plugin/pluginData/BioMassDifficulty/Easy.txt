@@ -31,11 +31,11 @@ DifficultySetting{
 {
   @category = -1
 }
-@PART[B_black_long]
+@PART[BioMass_SnackContainer_Long]
 {
   @category = -1
 }
-@PART[B_black]
+@PART[BioMass_SnackContainer_Basic]
 {
   @category = -1
 }
@@ -138,6 +138,12 @@ DifficultySetting{
 
 //*****************************************************
 //*****GREENHOUSES**********
+@PART[BioMass_Expanding_Greenhouse]
+{
+  @category = -1
+}
+
+
 @PART[BioMass_Blue_Greenhouse]
 {  
   @TechRequired = advElectrics

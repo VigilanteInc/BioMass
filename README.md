@@ -1,37 +1,47 @@
-BioMass WIP: Updated 2014.10.30
+BioMass WIP: Updated 2014.12.01
 
 Creators:
+=========
 
 Models and most of the code = Roboto
 Science and some of the code = seanth
 
-
-
-===========================
 Major reworking of how BioMass works:
+-------------------------------------
 
-1.) Brand new custom dlls that allow BioMass parts to continue to work even when ship are not selected, and a means of changing difficulty in-game.
-
-2.) New parts, improved animations, etc.
+1. Brand new custom dlls that allow BioMass parts to continue to work even when ship are not selected, and a means of changing difficulty in-game.
+2. New parts, improved animations, etc.
 
 Lots of play balancing left to do!
 
-Update 0.2.2.0 (2014.10.30)
-    -New Koylent maker model. 
-    -New greenhouse. Clone of how the blue greenhouse works. Needs to be improved
-    -New science part. Needs experiments defined.
+###Update 0.2.2.1 (2014.12.01)
+	*Expanding greenhouse attachment points fixed.
+	*Odd bug with textures files having "-" in the name not being loading on OS X 10.10 fixed.
+	*Placed numbers as folder prefixes to control the load order of parts.
+	*Fixed a silly error in the AVC version file (need to point to raw vs html formatted pages).
+	*Stared flushing out the biological experiments:
+		*Built in light works.
+		*Light is "consumed"
+		*Respiration experiments in place
+		*Sketchs of Photosynthesis, Growth, Germination, and Reproduction in place
+		*Needs: opened->light accumulation, all actual growth functions.
 
-Update 0.2.1.0 (2014.10.02)
-	-Removed 2nd Goo Experiment part appearing in VAB/SPH
+###Update 0.2.2.0 (2014.10.30)
+    *New Koylent maker model. 
+    *New greenhouse. Clone of how the blue greenhouse works. Needs to be improved.
+    *New science part. Needs experiments defined.
 
-Update 0.2.0.0 (2014.09.29):
-	-Added version file for Automatic Version Control (AVC) mod integration (suggested by Bit Fiddler)
-	-Added file paths to resources for use by Alternate Resource Panel mod.
-	-Fixed purple icon in toolbar at Space Center view (bug reported by Bit Fiddler)
-    -In-flight button moved
-	-Made "Easy" play mode a mass-balanced version of Classic (mass balance bug reported by KBluey). Seanth is punching himself in the head. Note: there are no plans to alter how Classic works.
-	-Most "Easy" play mode parts shifted into Utility vs Classic having them in "Science".
-	-Some "Easy" play mode parts have slightly different description compared to "Classic" to make it easier to go from Easy to Hard.
-    -Misc spelling and other fixes
+###Update 0.2.1.0 (2014.10.02)
+	*Removed 2nd Goo Experiment part appearing in VAB/SPH
+
+###Update 0.2.0.0 (2014.09.29):
+	*Added version file for Automatic Version Control (AVC) mod integration (suggested by Bit Fiddler)
+	*Added file paths to resources for use by Alternate Resource Panel mod.
+	*Fixed purple icon in toolbar at Space Center view (bug reported by Bit Fiddler)
+    *In-flight button moved
+	*Made "Easy" play mode a mass-balanced version of Classic (mass balance bug reported by KBluey). Seanth is punching himself in the head. Note: there are no plans to alter how Classic works.
+	*Most "Easy" play mode parts shifted into Utility vs Classic having them in "Science".
+	*Some "Easy" play mode parts have slightly different description compared to "Classic" to make it easier to go from Easy to Hard.
+    *Misc spelling and other fixes
 
     

@@ -1,6 +1,6 @@
 ﻿{
 	"NAME": "BioMass",
-	"URL":"https://github.com/VigilanteInc/BioMass/tree/master/GameData/BioMass/BioMass.version",
+	"URL":"https://raw.githubusercontent.com/VigilanteInc/BioMass/tree/master/GameData/BioMass/BioMass.version",
 	"DOWNLOAD":"https://github.com/VigilanteInc/BioMass/releases",
 	"GITHUB":{
 		"USERNAME":"VigilanteInc",
@@ -12,7 +12,7 @@
 	    "MAJOR":0,
 	    "MINOR":2,
 	    "PATCH":2,
-	    "BUILD":0
+	    "BUILD":1
 	},
 	"KSP_VERSION": 
 	{

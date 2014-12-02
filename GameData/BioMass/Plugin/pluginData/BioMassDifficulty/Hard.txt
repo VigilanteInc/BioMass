@@ -1,5 +1,5 @@
 DifficultySetting{
-	setting = easy
+	setting = Hard
 }
 
 //*****STATION HUBS*****
@@ -52,11 +52,11 @@ DifficultySetting{
 {
   @category = Utility
 }
-@PART[B_black_long]
+@PART[BioMass_SnackContainer_Long]
 {
   @category = Utility
 }
-@PART[B_black]
+@PART[BioMass_SnackContainer_Basic]
 {
   @category = Utility
 }
@@ -193,7 +193,7 @@ DifficultySetting{
 
 
 //*****Greenhouses
-@PART[BioMassExpandingGreenhouse
+@PART[BioMass_Expanding_Greenhouse]
 {
   @category = Utility
 }
