@@ -508,8 +508,8 @@ namespace BioMass
 		
 		public bioMsg(string msg){
 			thisString = msg;
-			
-			print("[BioMass]: " + msg);
+
+			Debug.LogWarning("[BioMass]: " + msg);
 			ScreenMessages.PostScreenMessage(thisString, 3.0f, ScreenMessageStyle.UPPER_CENTER);
 			
 		}
