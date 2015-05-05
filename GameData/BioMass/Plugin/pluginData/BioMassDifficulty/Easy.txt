@@ -88,23 +88,63 @@ DifficultySetting{
   @mass = 0.12
   @node_stack_top =    -0.01, 0.7, 0.07, 0.0, 1.0, 0.0, 1
   @node_stack_bottom = -0.01, -0.65, 0.06, 0.0, 1.0, 0.0, 1
-  -MODULE[BioGen]:HAS[#tag[makeMonoPropellant]] {}
-  MODULE {
-    name = BioGen
-    tag = makeMonoPropellant
-    bioLabel = M-Compressor
-    RequiresAllInputs = true
-    smartGen = true
-    hasMax = true
-    bioIn{
-      ElectricCharge = 10
-      Oxidizer = 0.0020000
-    }
-    bioOut{
-      CarbonDioxide = 0.1601743
-      MonoPropellant = 0.0024219
-    }
+  -MODULE[ModuleResourceConverter]:HAS[#tag[makeMonoPropellant]] {}
+  MODULE
+  {
+      name = ModuleResourceConverter
+      tag = makeMonoPropellant //for moduleManager
+      ConverterName = M-Compressor
+      StartActionName = Start Compression
+      StopActionName = Stop Compression
+      AutoShutdown = false
+      GeneratesHeat = false
+      UseSpecialistBonus = true
+      SpecialistEfficiencyFactor = 0.2
+      SpecialistBonusBase = 0.05
+      Specialty = Engineer
+      EfficiencyBonus = 1
+      INPUT_RESOURCE
+      {
+          ResourceName = ElectricCharge
+          Ratio = 10
+      }
+      INPUT_RESOURCE
+      {
+          ResourceName = Oxidizer
+          Ratio = 0.0020000
+          FlowMode = STAGE_PRIORITY_FLOW
+      }
+      OUTPUT_RESOURCE
+      {
+          ResourceName = CarbonDioxide
+          Ratio = 0.1601743
+          DumpExcess = false
+          FlowMode = STAGE_PRIORITY_FLOW
+      }
+      OUTPUT_RESOURCE
+      {
+          ResourceName = MonoPropellant
+          Ratio = 0.0024219
+          DumpExcess = false
+          FlowMode = STAGE_PRIORITY_FLOW
+       }
   }
+  //MODULE {
+  //  name = BioGen
+  //  tag = makeMonoPropellant
+  //  bioLabel = M-Compressor
+  //  RequiresAllInputs = true
+  //  smartGen = true
+  //  hasMax = true
+  //  bioIn{
+  //    ElectricCharge = 10
+  //    Oxidizer = 0.0020000
+  //  }
+  //  bioOut{
+  //    CarbonDioxide = 0.1601743
+  //    MonoPropellant = 0.0024219
+  //  }
+  //}
 }
 @PART[BioMassWhiteGasRegulator]
 {
