@@ -1,0 +1,239 @@
+﻿PART {
+
+name = experimentID = BioMassbioExp-1
+module = Part
+author = Roboto
+
+mesh = bioExp-1.mu
+scale = 1
+rescaleFactor = 0.20
+
+node_attach = 0.0, -1.0, 0.0, 0.0, 0.0, 0.0
+
+TechRequired = precisionEngineering
+entryCost = 4800
+cost = 220
+category = Science
+subcategory = 0
+title = EBC-1
+manufacturer = Found lying by the side of the road.
+description = Biological Systems Study
+
+attachRules = 0,1,0,0,1
+
+mass = 0.15
+dragModelType = default
+maximum_drag = 0.1
+minimum_drag = 0.1
+angularDrag = 2
+crashTolerance = 12
+maxTemp = 2900
+
+	//MODULE
+	//{
+	//	name = ModuleAnimateGeneric
+	//	animationName = open
+	//	animSwitch = True
+	//	startEventGUIName = Deploy
+	//	endEventGUIName = Close
+	//	actionGUIName = Toggle Cover
+	//}
+
+	//MODULE
+	//{
+	//	name = ModuleAnimateGeneric
+	//	animationName = expLight
+	//	animSwitch = True
+	//	startEventGUIName = Lights On
+	//	endEventGUIName = Lights Off
+	//	actionGUIName = Toggle Lights
+	//}
+	MODULE{
+		name = ModuleDeployableSolarPanel
+		animationName = open
+		animSwitch = true
+		sunTracking = true
+		raycastTransformName = glass
+		pivotName =  glass
+		isBreakable = false
+		resourceName = Light
+		chargeRate = 1.0
+		powerCurve
+	 	{
+			key = 206000000000 0 0 0
+			key = 13599840256 1 0 0
+			key = 68773560320 0.5 0 0
+			key = 0 0 0 0
+	 	}
+	}
+
+	MODULE {
+		name = BioGen
+		tag = Lights //for moduleManager
+		AnimationName = expLight
+		bioLabel = Lights
+		hasMax = false
+		bioIn{
+			ElectricCharge = 0.1
+		}
+		bioOut{
+			Light = 0.5
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+	MODULE
+	{
+		name = ModuleGenerator
+		isAlwaysActive = true
+		INPUT_RESOURCE
+		{
+		  name = Light
+		  rate = 0.5
+		}
+	}
+
+
+	//---the experiments---
+	MODULE
+	{
+		name = ModuleScienceExperiment	
+		experimentID = PlantRespirationStudy
+		experimentActionName = Germination Experiment
+		resetActionName = Reset Experiment1
+		useStaging = False
+		useActionGroups = True
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.4
+		dataIsCollectable = True
+		collectActionName = Take Data
+		interactionRange = 1.2
+		rerunnable = True		
+		FxModules = 0
+	}
+
+	MODULE
+	{
+		name = ModuleScienceExperiment	
+		experimentID = PlantRespirationStudy
+		experimentActionName = Respiration Experiment
+		resetActionName = Reset Experiment2
+		useStaging = False
+		useActionGroups = True
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.4
+		dataIsCollectable = True
+		collectActionName = Take Data
+		interactionRange = 1.2
+		rerunnable = True		
+		FxModules = 0
+	}
+
+	MODULE
+	{
+		name = ModuleScienceExperiment	
+		experimentID = PlantRespirationStudy
+		experimentActionName = Photosynthesis Experiment
+		resetActionName = Reset Experiment3
+		useStaging = False
+		useActionGroups = True
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.4
+		dataIsCollectable = True
+		collectActionName = Take Data
+		interactionRange = 1.2
+		rerunnable = True		
+		FxModules = 0
+	}
+
+	MODULE
+	{
+		name = ModuleScienceExperiment	
+		experimentID = PlantRespirationStudy
+		experimentActionName = Growth Experiment
+		resetActionName = Reset Experiment4
+		useStaging = False
+		useActionGroups = True
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.4
+		dataIsCollectable = True
+		collectActionName = Take Data
+		interactionRange = 1.2
+		rerunnable = True		
+		FxModules = 0
+	}
+
+	MODULE
+	{
+		name = ModuleScienceExperiment	
+		experimentID = PlantRespirationStudy
+		experimentActionName = Reproduction Experiment
+		resetActionName = Reset Experiment5
+		useStaging = False
+		useActionGroups = True
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.4
+		dataIsCollectable = True
+		collectActionName = Take Data
+		interactionRange = 1.2
+		rerunnable = True		
+		FxModules = 0
+	}
+
+	//this is just here because of the stupid ksp expanding part image bug
+    MODULE
+    {
+     name = ModuleSAS    
+    }
+
+
+	RESOURCE{
+		name = Light
+		amount = 0.0
+		maxAmount = 1
+	}
+	RESOURCE{
+			name = Seeds
+			amount = 1
+			maxAmount = 1
+	}
+	RESOURCE{
+			name = experimentID = PlantRespirationStudyass
+			amount = 0.4
+			maxAmount = 1
+	}
+	RESOURCE{
+			name = Oxygen
+			amount = 0.5
+			maxAmount = 1
+	}
+	RESOURCE{
+			name = CarbonDioxide
+			amount = 0.5
+			maxAmount = 1
+	}
+	RESOURCE{
+			name = Waste
+			amount = 1
+			maxAmount = 1
+	}
+	RESOURCE{
+			name = WasteWater
+			amount = 0
+			maxAmount = 1
+	}
+	RESOURCE{
+			name = Water
+			amount = 0.5
+			maxAmount = 1
+	}
+
+}
