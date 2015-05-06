@@ -317,7 +317,7 @@ namespace BioMass
 
 				} 
 				if(monitorWinOpen){
-					GUILayout.BeginArea(new Rect(1, 50 , 250, 75));
+					GUILayout.BeginArea(new Rect(1, 50 , 250, 150));
 						GUILayout.BeginHorizontal(bioLabelStyle);
 							GUILayout.Label("<color=yellow>  <b>BIOMONITOR</b></color>", bioLabelStyle);
 							if(GUILayout.Button("<size=9>close</size>",bioCloseBtn, GUILayout.Width(36))){
@@ -439,18 +439,18 @@ namespace BioMass
 			
 			foreach(Part bioPart in thisActiveVessel.parts)
 			{
-				if(bioPart.FindModulesImplementing<BioGen>().Count > 0){
+				if(bioPart.FindModulesImplementing<BiologicalProcess>().Count > 0){
 					
 					GUILayout.Label(bioPart.partInfo.title, bioOutPutStyle);
 					
-					foreach(BioGen myBioGenPart in bioPart.FindModulesImplementing<BioGen>()){
+					foreach(BiologicalProcess myBioGenPart in bioPart.FindModulesImplementing<BiologicalProcess>()){
 						string bioGenState;
 						if(!myBioGenPart.AlwaysActive){
 							
 							GUILayout.BeginHorizontal();
 							Texture indicatorLight = new Texture();
 							
-							if(myBioGenPart.activated){
+							if(myBioGenPart.IsActivated){
 								
 								bioGenState = "Active";
 								indicatorLight = bioPass;
@@ -463,10 +463,10 @@ namespace BioMass
 							
 							
 							GUILayout.Label(indicatorLight, bioIndicatorLight, GUILayout.Width(18));
-							myBioGenPart.activated = GUILayout.Toggle(myBioGenPart.activated, myBioGenPart.bioLabel + " " + bioGenState, bioBtnStyle);
+							myBioGenPart.IsActivated = GUILayout.Toggle(myBioGenPart.IsActivated, myBioGenPart.status + " " + bioGenState, bioBtnStyle);
 							if(GUI.changed){
-								if(myBioGenPart.activated == true){myBioGenPart.Activate(); }
-								else{myBioGenPart.Deactivate(); }
+								if(myBioGenPart.IsActivated == true){myBioGenPart.EnableModule(); }
+								else{myBioGenPart.EnableModule(); }
 							}
 							
 							GUILayout.EndHorizontal();
