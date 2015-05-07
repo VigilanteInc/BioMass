@@ -11,11 +11,6 @@ DifficultySetting{
 {
   @category = -1
 }
-//*****YELLOW GREENHOUSE*****
-@PART[BioMass_Yellow_Greenhouse]
-{
-  @category = -1
-}
 
 
 
@@ -24,7 +19,7 @@ DifficultySetting{
 @PART[CO2RadialLong]
 {
   @category = Utility
-  @title = Compressed CO2 Supply Tank, Long
+  @title = Supply Tank: Compressed CO2, Long
   @manufacturer = Stodola, LLC.
   @description = This tank is designed to hold compressed carbon dioxide, the last of the gasses discovered by the famous chemist Kan Thomas van Kerbin. There has been a great deal of speculation as to whether the CO2 is a liquid or a gas while in this tank. Most researchers believe it exists in both forms until you look, at which point something explodes.
   -RESOURCE[CarbonDioxide]{}
@@ -38,7 +33,7 @@ DifficultySetting{
 {
   @rescaleFactor = 0.5
   @category = Utility
-  @title =  Compressed CO2 Supply Tank, Round
+  @title =  Supply Tank: Compressed CO2, Round
   @manufacturer = Stodola, LLC.
   @description = This tank is designed to hold carbon dioxide, the last of the gasses discovered by the famous chemist Kan Thomas van Kerbin. Who knows how many other gasses he would have discovered if he hadn't insisted on breathing nothing but this gas for 10 minutes to prove it was safe.
   -RESOURCE[CarbonDioxide]{}
@@ -62,18 +57,11 @@ DifficultySetting{
 }
 @PART[OTankLong]
 {
-  @category = Utility
-  @title = Oxygen Supply Tank, Long
-  @manufacturer = Stodola, LLC.
-  @description = This tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
+  @category = -1
 }
 @PART[OTankRound]
 {
-  @rescaleFactor = 0.5
-  @category = Utility
-  @title =  Oxygen Supply Tank, Round
-  @manufacturer = Stodola, LLC.
-  @description = This tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
+  @category = -1
 }
 @PART[BioMass_SeedBank]
 {
@@ -108,7 +96,7 @@ DifficultySetting{
   @rescaleFactor = 0.6
   @cost = 3800
   @category = Utility
-  @title = Hydrogen Gas Compressor
+  @title = Gas Compressor, Hydrogen 
   @manufacturer = Stodola, LLC.
   @description = This compressor is certainly not to be used to inflate giant balloons. It should only be used to compress hydrogen into monopropellant for fuel or storage, or to reverse the process. Don't make me tell you again, Bill.
   @mass = 0.12
@@ -263,11 +251,21 @@ DifficultySetting{
   @category = Utility
 }
 
+@PART[BioMass_Yellow_Greenhouse]
+{
+  @category = -1
+}
+
+@PART[BioMass_Grey_Greenhouse]
+{
+  @category = Utility
+}
+
 @PART[BioMass_Blue_Greenhouse]
 {  
   @TechRequired = advElectrics
   @category = Utility
-  @title = Large Greenhouse
+  @title = Greenhouse
   @description = Sometimes you just need to stop and smell the flowers. With the Greenhouse module, you don't even need to stop; you can do so while zipping through space! Kamboo, selected for its staggeringly fast growth and absolute requirement for infrared light (IR) for germination, is the ideal plant for closed systems. Once in operation, these modules can filter the air, clean waste water, and provide a relaxing vista for weary Kerbal space travelers. Or you can harvest the biomass and seeds for use in making other useful materials, like snacks and fuel.
   !MODULE,*{}
 	MODULE{
@@ -291,7 +289,7 @@ DifficultySetting{
 	MODULE {
 		name = BioGen
 		tag = Lights
-		AnimationName = exhaustPort
+		AnimationName = GreenhouseLights
 		bioLabel = Lights
 		hasMax = false
 		bioIn{
@@ -301,6 +299,7 @@ DifficultySetting{
 			Light = 0.5
 		}
 	}
+  //ALWAYS CONSUME LIGHT TO YOU DON"T END UP "STORING" IT
   MODULE
   {
     name = ModuleGenerator
@@ -482,10 +481,10 @@ DifficultySetting{
   @entryCost = 800
   @cost = 800
   @category = Utility
-  @title = Small Greenhouse
-  @description = In a joint project, Kerbal Space Command and DG Aero-Space designed small, modular greenhouses to test whether a rose would smell as sweet in space. While initially designed  as an experiment package and giving insights into rates of germinations, photosynthesis and respiration, it was hoped the plant greenhouse would be of practical use to manned missions.
+  @title = Greenhouse: Experimental, V.2
+  @description = In a joint project, Kerbal Space Command and DG Aero-Space designed small, modular greenhouses to test whether a rose would smell as sweet in space. While initially designed as an experiment package and giving insights into rates of germinations, photosynthesis and respiration, it was hoped the plant greenhouse would be of practical use to manned missions.
   @node_stack_top = 0.0, 1.61, 0.0, 0.0, 1.0, 0.0, 1
-  @node_stack_bottom = 0.0, -1.59, 0.0, 0.0, 1.0, 0.0, 1
+  @node_stack_bottom = 0.0, -1.59, 0.0, 0.0, -1.0, 0.0, 1
   @mass = 1.25
   !MODULE,*{}
   MODULE{
@@ -509,7 +508,7 @@ DifficultySetting{
   MODULE {
     name = BioGen
     tag = Lights
-    AnimationName = exhaustPort
+    AnimationName = GreenhouseLights
     bioLabel = Lights
     hasMax = false
     bioIn{
@@ -519,6 +518,7 @@ DifficultySetting{
       Light = 0.5
     }
   }
+  //ALWAYS CONSUME LIGHT TO YOU DON"T END UP "STORING" IT
   MODULE
   {
     name = ModuleGenerator
@@ -719,7 +719,7 @@ DifficultySetting{
   MODULE {
     name = BioGen
     tag = Lights
-    AnimationName = exhaustPort
+    AnimationName = GreenhouseLights
     bioLabel = Lights
     hasMax = false
     bioIn{
@@ -729,6 +729,7 @@ DifficultySetting{
       Light = 0.5
     }
   }
+  //ALWAYS CONSUME LIGHT TO YOU DON"T END UP "STORING" IT
   MODULE
   {
     name = ModuleGenerator
