@@ -1,18 +1,10 @@
 using System;
-using System.Reflection;
 using System.Collections.Generic;
 using System.Collections;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.IO.Compression;
-
 using KSP;
 using UnityEngine;
+using BioMass;
 
-namespace BioMass
-{
-	
 	[KSPAddon(KSPAddon.Startup.Flight, false)]
 	public class craftManager : MonoBehaviour
 	{
@@ -53,13 +45,17 @@ namespace BioMass
 		public Vessel thisActiveVessel;
 		public Vector2 terminalScrollPosition;
 		public static string consoleText;
+		public static List<string> consoleMsgs;
+		public bool isUpdating;
 		//public Texture btnImg;
 		public bool showBtn;
 		public Vector2[] winToggleState;
 		public bool monitorWinOpen;
 
+		
 		public void Start(){
-
+			
+			consoleMsgs = new List<string> ();
 			resourceIcon = new Texture2D(32,16);
 			resourceIcons = new Dictionary<string, Texture2D>();
 			resourceIcons = resourceIconDefs();
@@ -80,17 +76,17 @@ namespace BioMass
 			bioBtnOnBackground = loadImage("box_on");
 			bioOutPutStyleBG = loadImage("outPut");
 
-			if(System.IO.File.Exists("GameData/BioMass/Plugin/pluginData/bioSave-" + HighLogic.CurrentGame.Title + ".cfg")){
-				
-				saveGameNode = ConfigNode.Load("GameData/BioMass/Plugin/pluginData/bioSave-" + HighLogic.CurrentGame.Title + ".cfg");
-				new bioMsg("previous save loaded!");
-			}else{
-				new bioMsg("load cfg failed");
-				saveGameNode = new ConfigNode();
-				saveGameNode.CopyTo(saveGameNode);
-				saveGameNode.Save("GameData/BioMass/Plugin/pluginData/bioSave-" + HighLogic.CurrentGame.Title + ".cfg");
-				Debug.Log("new Config created " + saveGameNode);
-			}
+//			if(System.IO.File.Exists("GameData/BioMass/Plugin/pluginData/bioSave-" + HighLogic.CurrentGame.Title + ".cfg")){
+//				
+//				saveGameNode = ConfigNode.Load("GameData/BioMass/Plugin/pluginData/bioSave-" + HighLogic.CurrentGame.Title + ".cfg");
+//				new bioMsg("previous save loaded!");
+//			}else{
+//				new bioMsg("load cfg failed");
+//				saveGameNode = new ConfigNode();
+//				saveGameNode.CopyTo(saveGameNode);
+//				saveGameNode.Save("GameData/BioMass/Plugin/pluginData/bioSave-" + HighLogic.CurrentGame.Title + ".cfg");
+//				Debug.Log("new Config created " + saveGameNode);
+//			}
 			thisActiveVessel = FlightGlobals.ActiveVessel;
 			consoleText = "No errors reporting.";
 		}//END Start
@@ -204,7 +200,7 @@ namespace BioMass
 		}//END loadImage
 
 		void OnGUI(){
-
+			
 			// Window background in flightview
 			GUI.backgroundColor = Color.white;
 
@@ -333,8 +329,10 @@ namespace BioMass
 
 				}
 			}
-
-
+		//Updates monitor output
+		if (!isUpdating)
+			StartCoroutine(updateConsole ());
+		
 		}//END OnGUI
 
 		private Dictionary<string,List<double>> GetResources()
@@ -442,7 +440,35 @@ namespace BioMass
 				if(bioPart.FindModulesImplementing<BiologicalProcess>().Count > 0){
 					
 					GUILayout.Label(bioPart.partInfo.title, bioOutPutStyle);
-					
+					foreach (AnimatedGenerator myBioGenPart in bioPart.FindModulesImplementing<AnimatedGenerator>()) {
+						string bioGenState;
+						if(!myBioGenPart.AlwaysActive){
+
+							GUILayout.BeginHorizontal();
+							Texture indicatorLight = new Texture();
+
+							if(myBioGenPart.IsActivated){
+
+								bioGenState = "Active";
+								indicatorLight = bioPass;
+							}
+							else{
+
+								indicatorLight = bioError;
+								bioGenState = "Inactive";
+							}
+
+
+							GUILayout.Label(indicatorLight, bioIndicatorLight, GUILayout.Width(18));
+							myBioGenPart.IsActivated = GUILayout.Toggle(myBioGenPart.IsActivated, myBioGenPart.status + " " + bioGenState, bioBtnStyle);
+							if(GUI.changed){
+								if(myBioGenPart.IsActivated == true){myBioGenPart.EnableModule(); }
+								else{myBioGenPart.EnableModule(); }
+							}
+
+							GUILayout.EndHorizontal();
+						}
+					}
 					foreach(BiologicalProcess myBioGenPart in bioPart.FindModulesImplementing<BiologicalProcess>()){
 						string bioGenState;
 						if(!myBioGenPart.AlwaysActive){
@@ -478,7 +504,23 @@ namespace BioMass
 			GUILayout.EndHorizontal();
 			GUI.DragWindow();
 		}//END makeCraftWin
-		
+
+	//processes messages to be sent to the monitor
+	public IEnumerator updateConsole(){
+		isUpdating = true;
+		string tempText = "System Status:\n";
+		int i = 0;
+		List<string> tempList = consoleMsgs;
+
+		while (i < tempList.Count) {
+			tempText += tempList [i] + "\n";
+			i++;
+		}
+		consoleText = tempText;
+		consoleMsgs.Clear ();
+		isUpdating = false;
+
+		yield return new WaitForSeconds(0);
+	}
 
 	}//END craftManager class
-}//END BioMass namespace
