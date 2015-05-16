@@ -10,10 +10,22 @@ using UnityEngine;
 namespace BioMass
 {
 	
-	
-//	[KSPAddon(KSPAddon.Startup.SpaceCentre, false)]
-//	public class bioManager : MonoBehaviour
-//	{
+	[KSPAddon(KSPAddon.Startup.SpaceCentre, false)]
+	public class bioManager : MonoBehaviour
+	{ 
+		//public ConfigNode saveGameNode;
+
+		void Start(){
+			
+			HighLogic.CurrentGame.Parameters.Career.TechTreeUrl = "GameData/BioMass/Resources/Bio_TechTree.cfg";
+		//	saveGameNode = HighLogic.CurrentGame.config;
+			//Debug.Log (HighLogic.CurrentGame.config);
+		//	HighLogic.CurrentGame.Save (saveGameNode);
+
+		}
+
+
+	}
 //		
 //		public Rect winRect;
 //		

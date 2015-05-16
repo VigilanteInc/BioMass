@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using KSP;
 using UnityEngine;
-using BioMass;
+namespace BioMass {
 
 	[KSPAddon(KSPAddon.Startup.Flight, false)]
 	public class craftManager : MonoBehaviour
@@ -46,8 +46,9 @@ using BioMass;
 		public Vector2 terminalScrollPosition;
 		public static string consoleText;
 		public static List<string> consoleMsgs;
+		public static bool mustHarvest;
 		public bool isUpdating;
-		//public Texture btnImg;
+		
 		public bool showBtn;
 		public Vector2[] winToggleState;
 		public bool monitorWinOpen;
@@ -88,10 +89,17 @@ using BioMass;
 //				Debug.Log("new Config created " + saveGameNode);
 //			}
 			thisActiveVessel = FlightGlobals.ActiveVessel;
-			consoleText = "No errors reporting.";
+		consoleText = "No errors reporting.";
+		StartCoroutine(updateConsole());
+
 		}//END Start
 
-
+	void FixedUpdate(){
+		if (!isUpdating) {
+			isUpdating = true;
+			StartCoroutine (updateConsole ());
+		}
+	}
 		/// <summary>
 		/// Resources the icon defs. lol No really! IT DOES!
 		/// </summary>
@@ -115,10 +123,10 @@ using BioMass;
 		public IEnumerator winSlideToggle(){
 
 			float progress = 0.0f;
-			float speed = 0.5f;
+			var speed = 0.5f;
 			bioWin = true;
 
-			Vector2 newPosition = new Vector2();
+			var newPosition = new Vector2();
 			if(!isOpen){
 
 				newPosition = winToggleState[0];
@@ -181,7 +189,7 @@ using BioMass;
 	
 		public Texture loadImage(string imgName){
 			string PathPlugin = string.Format("{0}","BioMass");
-			Texture thisImg = new Texture();
+			var thisImg = new Texture();
 			//Texture2D thisImg = new Texture2D(16,16);
 			string PathTextures = string.Format("{0}/Textures", PathPlugin);
 			string FolderPath = PathTextures;
@@ -313,10 +321,10 @@ using BioMass;
 
 				} 
 				if(monitorWinOpen){
-					GUILayout.BeginArea(new Rect(1, 50 , 250, 150));
+					GUILayout.BeginArea(new Rect(1, 50 , 250, 250));
 						GUILayout.BeginHorizontal(bioLabelStyle);
 							GUILayout.Label("<color=yellow>  <b>BIOMONITOR</b></color>", bioLabelStyle);
-							if(GUILayout.Button("<size=9>close</size>",bioCloseBtn, GUILayout.Width(36))){
+							if(GUILayout.Button("<size=9><color=black>close</color></size>",bioCloseBtn, GUILayout.Width(36))){
 								monitorWinOpen = false;
 							}
 							GUILayout.EndHorizontal();
@@ -330,19 +338,30 @@ using BioMass;
 				}
 			}
 		//Updates monitor output
-		if (!isUpdating)
-			StartCoroutine(updateConsole ());
+			if(mustHarvest){
+				GUI.ModalWindow (42,new Rect (Screen.width / 3, Screen.height / 4, Screen.width / 6, Screen.height / 8), makeHarvestModal, "BioMass Must Be Harvested!");
+			}
 		
 		}//END OnGUI
 
+		void makeHarvestModal(int modalId){
+			GUILayout.Space (32);
+			GUILayout.Label ("BioMass must be harvested before the greenhouse can be re-packed");
+			GUILayout.Space (32);
+			if (GUILayout.Button ("Aye Kaptain!")) {
+
+				mustHarvest = false;
+			}
+		}
+
 		private Dictionary<string,List<double>> GetResources()
 		{
-			Dictionary<string,List<double>> resources = new Dictionary<string,List<double>>();
+			var resources = new Dictionary<string,List<double>>();
 			foreach (Part part in thisActiveVessel.Parts)
 			{
 				foreach (PartResource resource in part.Resources)
 				{		
-					List<double> thisList = new List<double>();
+					var thisList = new List<double>();
 					thisList.Add(resource.amount);
 					thisList.Add (resource.maxAmount);
 					
@@ -352,7 +371,7 @@ using BioMass;
 					}
 					else{
 
-						List<double> newValueList = new List<double>();
+						var newValueList = new List<double>();
 						int i = 0;
 						foreach(double thisDouble in resources[resource.info.name]){
 							
@@ -445,7 +464,7 @@ using BioMass;
 						if(!myBioGenPart.AlwaysActive){
 
 							GUILayout.BeginHorizontal();
-							Texture indicatorLight = new Texture();
+							var indicatorLight = new Texture();
 
 							if(myBioGenPart.IsActivated){
 
@@ -474,7 +493,7 @@ using BioMass;
 						if(!myBioGenPart.AlwaysActive){
 							
 							GUILayout.BeginHorizontal();
-							Texture indicatorLight = new Texture();
+							var indicatorLight = new Texture();
 							
 							if(myBioGenPart.IsActivated){
 								
@@ -507,20 +526,23 @@ using BioMass;
 
 	//processes messages to be sent to the monitor
 	public IEnumerator updateConsole(){
-		isUpdating = true;
-		string tempText = "System Status:\n";
-		int i = 0;
-		List<string> tempList = consoleMsgs;
 
-		while (i < tempList.Count) {
-			tempText += tempList [i] + "\n";
-			i++;
+		if (consoleMsgs.Count > 0) {
+			string tempText = "System Status:\n";
+			int i = 0;
+
+			List<string> tempList = consoleMsgs;
+
+			while (i < tempList.Count) {
+				tempText += tempList [i] + "\n";
+				i++;
+			}
+			consoleText = tempText;
+			consoleMsgs.Clear ();
 		}
-		consoleText = tempText;
-		consoleMsgs.Clear ();
 		isUpdating = false;
-
 		yield return new WaitForSeconds(0);
 	}
 
 	}//END craftManager class
+}

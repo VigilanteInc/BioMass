@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using KSP;
 using UnityEngine;
+using System.Text;
 
 namespace BioMass
 {
@@ -14,34 +15,58 @@ namespace BioMass
 		[KSPField]
 		public float plantMaxScale = 1.0f; //the max scale you want the plants to grow visually. This will not stop the growth of biomas, only the visual size of the model
 		[KSPField]
-		public string cropType = "Kamboo";
+		public string cropType = "Kamboo"; 
 		[KSPField]
 		public string plantMeshName = "plant"; //this is the transform.name given to the plant prefabs in unity.
 		[KSPField]
 		public bool growPlants = false;
+		[KSPField]
+		public string startingScaleString = "0.04,0.04,0.05";
+		[KSPField]
+		public string lastBioMassAmtString = "0.00";
 
+	
+		//public ConfigNode config;
+		private Vector3 currentPlantScale;
 		private Transform[] plants;
-		private float lastBioMassAmt = 0.00f;
-		private float growthValue;
-		private bool isFIrstRun;
+		private double lastBioMassAmt = 0.00;
+		private double growthValue;
 
+		public bool mustHarvest;
 
 		public override void OnStart(PartModule.StartState state){
 			
-			if (growPlants) {
+			if(growPlants) {
+				try{
+					lastBioMassAmt = double.Parse (lastBioMassAmtString);
+				}catch(ArgumentNullException){
+					lastBioMassAmt = 0.00;
+				}
 				plants = getPlants ();
 				setStartingScale ();
-				}
+			}
 			base.OnStart (state);
+
 		}
 
+		//override the extension of panels, check for biomass and step in the way...
+		public override void OnInitialize ()
+		{
+			if ( lastBioMassAmt > 0 ) {
+				this.retractable = false;
+				craftManager.mustHarvest = true;
+			} else {
+				this.retractable = true;
+			}
+			base.OnInitialize ();
+		}
+			
+
 		public override void OnFixedUpdate(){
+			
+			//TODO:stop retraction when plants are grown and prompt for harvest.
 
 			if (growPlants) {
-				if (!isFIrstRun) {
-					isFIrstRun = true;
-					lastBioMassAmt = (float)GetResourceTotal ("BioMass");
-				}
 				try {
 					if (plants.Length > 0) {
 						growthValue = getChangeInBioMass ();
@@ -54,39 +79,66 @@ namespace BioMass
 					craftManager.consoleMsgs.Add ("There are no plants to grow.");
 				}
 
-				CheckRetractable ();
 			}
 
 			base.OnFixedUpdate ();
 		}//END ONFIXEDUPDATE
 
-		public void CheckRetractable(){
-			foreach (PartResource thisResource in part.Resources){
-				if(thisResource.resourceName == "BioMass" && thisResource.amount > 0){
-					runOnce = true;
-				}else{
-					runOnce = false;
-				}
-			}	
+		public override void OnSave(ConfigNode config){
+			//save the current scale to the startingscale for next load
+			config.AddValue ("startingScaleString", startingScaleString);
+			config.AddValue ("lastBioMassAmt", lastBioMassAmt.ToString());
+			base.OnSave (config);
 		}
+
+		public override void OnLoad(ConfigNode config){
+			//pull the scale from save file
+			startingScaleString = config.GetValue ("startingScaleString");
+			lastBioMassAmtString = config.GetValue ("lastBioMassAmt");
+			//set the current scale
+			currentPlantScale = plantScale(config.GetValue("startingScaleString"));
+			Debug.Log("[BioMass] - Previous plant growth loaded.");
+			//No. This does not update the scale based on growth while the ship was loaded.
+			//It will load the last scale that they were when saved.
+			//While yes, this is pretty easy to calculate and put in place, I have decided not too for the moment.
+			//Mostly becuase the scaling stops well before biomass is full anyway.
+			//maybe in a later update...
+			base.OnLoad (config);
+		}
+		public Vector3 plantScale(string V3String){
+			
+			var Vect3Pos = V3String.Split (',');
+			var tempV3 = new Vector3 ( float.Parse(Vect3Pos[0]) ,float.Parse(Vect3Pos[1]),float.Parse(Vect3Pos[2]));
+			return(tempV3);
+		}
+			
 		public void setStartingScale(){
-			foreach (Transform plant in plants) {
-				plant.localScale = new Vector3 (0.05f, 0.05f, 0.04f);
+			try{
+				var TempScale = plantScale(startingScaleString);
+				foreach (Transform plant in plants) {
+						plant.localScale = TempScale;
+						currentPlantScale = TempScale;
+				}
+			}
+			catch(NullReferenceException){
+				Debug.Log("[BioMass] - Setting startign scale of plants failed. NullRef");
 			}
 		}
 		public void scalePlants(){
 			
 			foreach(Transform plant in plants){
-				craftManager.consoleMsgs.Add("localScale.x: " + plant.localScale.x.ToString() + "\nPlantMaxScale: " + plantMaxScale);
-				if(plant.localScale.x > 0f && plant.localScale.x < plantMaxScale )
-					plant.localScale = new Vector3 (plant.localScale.x + growthValue, plant.localScale.y + growthValue, plant.localScale.z + growthValue );
+				if (plant.localScale.x > 0f && plant.localScale.x < plantMaxScale)
+					
+					plant.localScale = new Vector3 (plant.localScale.x + (float)growthValue, plant.localScale.y + (float)growthValue, plant.localScale.z + (float)growthValue );
+					currentPlantScale = plant.localScale;
+					startingScaleString = currentPlantScale.x + "," + currentPlantScale.y + "," + currentPlantScale.z;
 				
 			}
 		}
 
 		//get the change in total BioMass
-		public float getChangeInBioMass (){
-			float thisGrowthValue = ((float)(GetResourceTotal ("BioMass")/plants.Length) - (lastBioMassAmt/plants.Length));
+		public double getChangeInBioMass (){
+			double thisGrowthValue = ((GetResourceTotal ("BioMass")/plants.Length) - (lastBioMassAmt/plants.Length));
 			lastBioMassAmt = (float)(GetResourceTotal ("BioMass"));
 			return(thisGrowthValue);
 		}
@@ -121,6 +173,8 @@ namespace BioMass
 			part.GetConnectedResources(resourceDef.id, resourceDef.resourceFlowMode, resources);
 			return resources;
 		}//GetConnectedResources
+
+
 	}// END PlantGrowth
 
 //ModuleResourceConverter for Bilogical Processes such as photosynthesis
