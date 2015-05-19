@@ -9,13 +9,14 @@ namespace BioMass
 	public class BiologicalProcess : ModuleResourceConverter{
 
 		[KSPField]
-		public string bioName;   //optional name of crop/organisim to help determine error sources. 
+		public string bioName = "";   //optional name of crop/organisim to help determine error sources. 
 	
 		public Dictionary<int,string> bioSysMsgs;
 
 		public override void OnStart(PartModule.StartState state){
 
-			if (bioName == null) bioName = ConverterName;
+			if (bioName == "")
+				bioName = ConverterName;
 			bioSysMsgs = new Dictionary<int,string> ();
 			base.OnStart (state);
 		}

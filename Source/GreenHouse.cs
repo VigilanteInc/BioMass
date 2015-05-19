@@ -85,23 +85,27 @@ namespace BioMass
 
 		public override void OnSave(ConfigNode config){
 			//save the current scale to the startingscale for next load
-			config.AddValue ("startingScaleString", startingScaleString);
-			config.AddValue ("lastBioMassAmt", lastBioMassAmt.ToString());
+			if (growPlants) {
+				config.AddValue ("startingScaleString", startingScaleString);
+				config.AddValue ("lastBioMassAmt", lastBioMassAmt.ToString ());
+			}
 			base.OnSave (config);
 		}
 
 		public override void OnLoad(ConfigNode config){
 			//pull the scale from save file
-			startingScaleString = config.GetValue ("startingScaleString");
-			lastBioMassAmtString = config.GetValue ("lastBioMassAmt");
-			//set the current scale
-			currentPlantScale = plantScale(config.GetValue("startingScaleString"));
-			Debug.Log("[BioMass] - Previous plant growth loaded.");
-			//No. This does not update the scale based on growth while the ship was loaded.
-			//It will load the last scale that they were when saved.
-			//While yes, this is pretty easy to calculate and put in place, I have decided not too for the moment.
-			//Mostly becuase the scaling stops well before biomass is full anyway.
-			//maybe in a later update...
+			if(growPlants){
+				startingScaleString = config.GetValue ("startingScaleString");
+				lastBioMassAmtString = config.GetValue ("lastBioMassAmt");
+				//set the current scale
+				currentPlantScale = plantScale(config.GetValue("startingScaleString"));
+				Debug.Log("[BioMass] - Previous plant growth loaded.");
+				//No. This does not update the scale based on growth while the ship was loaded.
+				//It will load the last scale that they were when saved.
+				//While yes, this is pretty easy to calculate and put in place, I have decided not too for the moment.
+				//Mostly becuase the scaling stops well before biomass is full anyway.
+				//maybe in a later update...
+			}
 			base.OnLoad (config);
 		}
 		public Vector3 plantScale(string V3String){
