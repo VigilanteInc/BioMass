@@ -100,7 +100,7 @@ namespace BioMass
 				//set the current scale
 				currentPlantScale = plantScale(config.GetValue("startingScaleString"));
 				Debug.Log("[BioMass] - Previous plant growth loaded.");
-				//No. This does not update the scale based on growth while the ship was loaded.
+				//No. This does not update the scale based on growth while the ship was not in focus.
 				//It will load the last scale that they were when saved.
 				//While yes, this is pretty easy to calculate and put in place, I have decided not too for the moment.
 				//Mostly becuase the scaling stops well before biomass is full anyway.
@@ -124,7 +124,7 @@ namespace BioMass
 				}
 			}
 			catch(NullReferenceException){
-				Debug.Log("[BioMass] - Setting startign scale of plants failed. NullRef");
+				Debug.Log("[BioMass] - Setting starting scale of plants failed. NullRef");
 			}
 		}
 		public void scalePlants(){

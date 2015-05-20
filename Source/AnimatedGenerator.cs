@@ -10,6 +10,7 @@ namespace BioMass
 	/// </summary>
 	public class AnimatedGenerator : ModuleResourceConverter{
 
+		public string bioName = "Generator"; //optional name for error reporting.
 		public bool isPlaying = false;
 		/// The name of the animation.
 		[KSPField] // for setting animation name via cfg file
