@@ -25,7 +25,7 @@ namespace BioMass
 		public override void OnFixedUpdate(){
 
 			if (IsActivated && !isPlaying) {
-				new bioMsg ("Artificial Lights Activated");
+				
 				isPlaying = true;
 				try{
 
