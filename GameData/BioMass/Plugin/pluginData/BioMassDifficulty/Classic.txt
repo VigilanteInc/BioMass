@@ -16,14 +16,17 @@ DifficultySetting{
 
 @PART[BioMass_GreyGasRegulator]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[BioMass_WhiteGasRegulator]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[BioMass_GreenGasRegulator]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[Biomass_StationHub1]{
@@ -50,19 +53,23 @@ DifficultySetting{
 
 @PART[BioMass_SnackContainer_Basic]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[BioMass_SnackContainer_Long]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[BioMass_SnackContainer]{
    @category=-1
+   @TechRequired=-1
 }
 
 
 @PART[BioMass_SeedBank]{
    @category=-1
+   @TechRequired=-1
 }
 
 
@@ -123,6 +130,7 @@ DifficultySetting{
 
 @PART[BioMass_KoylentMachine]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[BioMass_BioReactor]{
@@ -134,6 +142,16 @@ DifficultySetting{
    @cost=4500
    @manufacturer=DG Aero-Space Renewables
    @mass=5
+}
+
+@PART[BioMass_Expanding_Greenhouse]{
+   @category=-1
+   @TechRequired=-1
+}
+
+@PART[BioMass_Algae_Greenhouse]{
+   @category=-1
+   @TechRequired=-1
 }
 
 //**********END categories, visibility, descriptions, mass, rescale, tech required*********************

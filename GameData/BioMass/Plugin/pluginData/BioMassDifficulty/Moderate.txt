@@ -49,10 +49,12 @@ DifficultySetting{
 
 @PART[Biomass_StationHub1]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[Biomass_StationHub2]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[BioMass_SnackContainer_Basic]{
@@ -103,10 +105,12 @@ DifficultySetting{
 
 @PART[OTankRound]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[OTankLong]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[radialCO2Tank]{

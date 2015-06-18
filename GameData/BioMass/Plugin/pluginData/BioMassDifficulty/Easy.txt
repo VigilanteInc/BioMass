@@ -16,22 +16,27 @@ DifficultySetting{
 
 @PART[BioMass_GreyGasRegulator]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[BioMass_WhiteGasRegulator]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[BioMass_GreenGasRegulator]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[Biomass_StationHub1]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[Biomass_StationHub2]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[BioMass_SnackContainer_Basic]{
@@ -70,6 +75,7 @@ DifficultySetting{
 
 @PART[BioMass_SeedBank_Flat]{
    @category=-1
+   @TechRequired=-1
 }
 
 
@@ -130,6 +136,7 @@ DifficultySetting{
 
 @PART[BioMass_KoylentMachine]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[BioMass_BioReactor]{
@@ -189,10 +196,12 @@ DifficultySetting{
 
 @PART[BioMass_Expanding_Greenhouse]{
    @category=-1
+   @TechRequired=-1
 }
 
 @PART[BioMass_Algae_Greenhouse]{
    @category=-1
+   @TechRequired=-1
 }
 
 //**********END categories, visibility, descriptions, mass, rescale, tech required*********************
