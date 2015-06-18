@@ -2,93 +2,207 @@ DifficultySetting{
 	setting = easy
 }
 
-//*****************************************************
-//*****SUPPLY TANKS*****
-@PART[BiomassStationHub1]
-{
-  @category = Utility
+//**********categories, visibility, descriptions, mass, rescale, tech required*********************
+@PART[BioMass_RedGasRegulator]{
+   @category=Utility
+   @title=Gas Compressor
+   @description=This compressor can be used to fill MonoPropellant tanks by compressing excess oxidizer.
+   @rescaleFactor=0.6
+   @TechRequired=electrics
+   @cost=3800
+   @manufacturer=Stodola, LLC.
+   @mass=0.12
 }
-@PART[BiomassStationHub2]
-{
-  @category = Utility
+
+@PART[BioMass_GreyGasRegulator]{
+   @category=-1
 }
-@PART[CO2RadialLong]
-{
-  @category = Utility
-  @title = Compressed CO2 Supply Tank, Long
-  @manufacturer = Stodola, LLC.
-  @description = This tank is designed to hold carbon dioxide, the last of the gasses discovered by the famous chemist Kan Thomas van Kerbin. There has been a great deal of speculation as to whether the CO2 is a liquid or a gas while in this tank. Most researchers believe it exists in both forms until you look, at which point something explodes.
+
+@PART[BioMass_WhiteGasRegulator]{
+   @category=-1
 }
-@PART[radialCO2Tank]
-{
-  @rescaleFactor = 0.5
-  @category = Utility
-  @title =  Compressed CO2 Supply Tank, Round
-  @manufacturer = Stodola, LLC.
-  @description = This tank is designed to hold carbon dioxide, the last of the gasses discovered by the famous chemist Kan Thomas van Kerbin. Who knows how many other gasses he would have discovered if he hadn't insisted on breathing nothing but this gas for 10 minutes to prove it was safe.
+
+@PART[BioMass_GreenGasRegulator]{
+   @category=-1
 }
-@PART[BioMass_SnackContainer]
-{
-  @category = -1
+
+@PART[Biomass_StationHub1]{
+   @category=-1
 }
-@PART[BioMass_SnackContainer_Long]
-{
-  @category = -1
+
+@PART[Biomass_StationHub2]{
+   @category=-1
 }
-@PART[BioMass_SnackContainer_Basic]
-{
-  @category = -1
+
+@PART[BioMass_SnackContainer_Basic]{
+   @category=Utility
+   @title=Snack Container
+   @description=When Kerbal Geographic Society first approached manufacturers to produce storage containers for use on long kerrestrial voyages, most businesses proposed storing food in cardboard boxes. Only Sklifosovsky Labs managed to produce a storage solution that met the needs of the KGS. Later, when Kerbal Space Command faced similar needs, turning to Sklifosovsky was a natural move, and their latest space-ready food-storage containers are guaranteed to actually store food.
+   @rescaleFactor=0.85
+   @TechRequired=sustainability
+   @cost=200
+   @manufacturer=Sklifosovsky Labs
+   @mass=0.312
 }
-@PART[OTankLong]
-{
-  @category = Utility
-  @title = Oxygen Supply Tank, Long
-  @manufacturer = Stodola, LLC.
-  @description = This tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
+
+@PART[BioMass_SnackContainer_Long]{
+   @category=Utility
+   @title=Snack Container: Tripple Size
+   @description=Guaranteed to store enough food for even the hungriest Kerbal, "The Tripple Size Snack Container is for Tripple Sized Appetites"™
+   @rescaleFactor=0.85
+   @TechRequired=spaceAg
+   @cost=500
+   @manufacturer=Sklifosovsky Labs
+   @mass=0.812
 }
-@PART[OTankRound]
-{
-  @rescaleFactor = 0.5
-  @category = Utility
-  @title =  Oxygen Supply Tank, Round
-  @manufacturer = Stodola, LLC.
-  @description = This roundified tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
-}
-@PART[BioMass_SeedBank]
-{
-  @category = -1
-}
-@PART[H2ORadialLong]
-{
-  @category = Utility
+
+@PART[BioMass_SnackContainer]{
+   @category=Utility
+   @title=Snack Container: Flat
+   @description=This handy food storage device is the perfect size for a picnic...on another planet.
+   @rescaleFactor=0.85
+   @TechRequired=spaceAg
+   @cost=100
+   @manufacturer=Sklifosovsky Labs
+   @mass=0.1
 }
 
 
-//*****************************************************
-//**SCIENCE
-//****HIDE THESE FOR NOW. 
-//@PART[BioMassAGStudy]
-//{
-//  @category = Science
-//}
-//@PART[BioMassGooExp]
-//{
-//  @category = Science
-//}
+@PART[BioMass_SeedBank_Flat]{
+   @category=-1
+}
 
 
-//*****************************************************
+@PART[OTankRound]{
+   @category=Utility
+   @title=Supply Tank: O2, Round
+   @description=This roundified tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
+   @rescaleFactor=1
+   @TechRequired=bioSystems
+   @cost=450
+   @manufacturer=Stodola, LLC.
+   @mass=0.075
+}
+
+@PART[OTankLong]{
+   @category=Utility
+   @title=Supply Tank: O2, Long
+   @description=This tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
+   @rescaleFactor=0.5
+   @TechRequired=bioSystems
+   @cost=800
+   @manufacturer=Stodola, LLC.
+   @mass=0.15
+}
+
+@PART[radialCO2Tank]{
+   @category=Utility
+   @title=Supply Tank: CO2, Round
+   @description=This tank is designed to hold carbon dioxide, the last of the gasses discovered by the famous chemist Kan Thomas van Kerbin. Who knows how many other gasses he would have discovered if he hadn't insisted on breathing nothing but this gas for 10 minutes to prove it was safe.
+   @rescaleFactor=1
+   @TechRequired=bioSystems
+   @cost=400
+   @manufacturer=Stodola, LLC.
+   @mass=0.075
+}
+
+@PART[CO2RadialLong]{
+   @category=Utility
+   @title=Supply Tank: CO2, Long
+   @description=This tank is designed to hold carbon dioxide, the last of the gasses discovered by the famous chemist Kan Thomas van Kerbin. There has been a great deal of speculation as to whether the CO2 is a liquid or a gas while in this tank. Most researchers believe it exists in both forms until you look, at which point something explodes.
+   @rescaleFactor=0.5
+   @TechRequired=bioSystems
+   @cost=800
+   @manufacturer=Stodola, LLC.
+   @mass=0.15
+}
+
+@PART[H2ORadialLong]{
+   @category=Utility
+   @title=Supply Tank: H2O
+   @description=Nothing fancy. Just a tank designed to hold water. Heavy, heavy water.
+   @rescaleFactor=1
+   @TechRequired=bioSystems
+   @cost=800
+   @manufacturer=Stodola, LLC.
+   @mass=0.30
+}
+
+@PART[BioMass_KoylentMachine]{
+   @category=-1
+}
+
+@PART[BioMass_BioReactor]{
+   @category=Utility
+   @title=Bioreactor
+   @description=Consumes BioMass and produce Liquid/Oxidizer biofuel. The reaction outputs excess Oxidizer that can be used in the compressor module to fill MonoPropellant.
+   @rescaleFactor=1
+   @TechRequired=bioFuels
+   @cost=4500
+   @manufacturer=DG Aero-Space Renewables
+   @mass=5
+}
+
+@PART[BioMass_MicroBiome]{
+   @category=Utility
+   @title=MicroBiome Module
+   @description=Essentially nothing more than a space faring petri-dish, the Micro-Biome provides a suitable environment to cultivate Mystery Goo™ on a large scale. With in the module, Mystery Goo happily dine on any available waste products to produce Nutrients, Reactants and other resources.
+   @rescaleFactor=0.9
+   @TechRequired=sustainability
+   @cost=2500
+   @manufacturer=DG Aerospace Renewables
+   @mass=2.2
+}
+
+@PART[BioMass_Yellow_Greenhouse]{
+   @category=Utility
+   @title=Greenhouse: Food
+   @description=Cultivates photosynthetic and other complex organisms in a self contained environment. When provided with proper nutrients and sunlight, it can be used to produce Oxygen, Food, or just to filter the air and provide a relaxing vista for weary Kerbal Space Travelers.
+   @rescaleFactor=1.3
+   @TechRequired=spaceAg
+   @cost=3880
+   @manufacturer=DG Aero-Space Renewables
+   @mass=5
+}
+
+@PART[BioMass_Red_Greenhouse]{
+   @category=Utility
+   @title=Greenhouse: BioMass
+   @description=Cultivates photosynthetic and other complex organisms in a self contained environment. When provided with proper nutrients and sunlight, it can be used to produce BioMass, Oxygen, or just to filter the air and provide a relaxing vista for weary Kerbal Space Travelers.
+   @rescaleFactor=1.3
+   @TechRequired=bioSystems
+   @cost=3880
+   @manufacturer=DG Aero-Space Renewables
+   @mass=5
+}
+
+@PART[BioMass_Blue_Greenhouse]{
+   @category=Utility
+   @title=GreenHouse: Oxygen
+   @description=Cultivates photosynthetic and other complex organisms in a self contained environment. When provided with proper nutrients and sunlight, it can be used to produce Oxygen, Food, or just to filter the air and provide a relaxing vista for weary Kerbal Space Travelers.
+   @rescaleFactor=1.3
+   @TechRequired=spaceAg
+   @cost=3880
+   @manufacturer=DG Aero-Space Renewables
+   @mass=5
+}
+
+@PART[BioMass_Expanding_Greenhouse]{
+   @category=-1
+}
+
+@PART[BioMass_Algae_Greenhouse]{
+   @category=-1
+}
+
+//**********END categories, visibility, descriptions, mass, rescale, tech required*********************
+
+//**********modules************************************************************************************
 //*****GAS REGULATORS*****
-@PART[BioMassRedGasRegulator]
+@PART[BioMass_RedGasRegulator]
 {
-  @rescaleFactor = 0.6
-  @cost = 3800
-  @category = Utility
-  @manufacturer = Stodola, LLC.
-  @mass = 0.12
-  @node_stack_top =    -0.01, 0.7, 0.07, 0.0, 1.0, 0.0, 1
-  @node_stack_bottom = -0.01, -0.65, 0.06, 0.0, 1.0, 0.0, 1
   -MODULE[ModuleResourceConverter]:HAS[#tag[makeMonoPropellant]] {}
+  -MODULE[ModuleResourceConverter]:HAS[#tag[ReleaseH2]] {}
   MODULE
   {
       name = ModuleResourceConverter
@@ -129,35 +243,682 @@ DifficultySetting{
           FlowMode = STAGE_PRIORITY_FLOW
        }
   }
-  //MODULE {
-  //  name = BioGen
-  //  tag = makeMonoPropellant
-  //  bioLabel = M-Compressor
-  //  RequiresAllInputs = true
-  //  smartGen = true
-  //  hasMax = true
-  //  bioIn{
-  //    ElectricCharge = 10
-  //    Oxidizer = 0.0020000
-  //  }
-  //  bioOut{
-  //    CarbonDioxide = 0.1601743
-  //    MonoPropellant = 0.0024219
-  //  }
-  //}
 }
-@PART[BioMassWhiteGasRegulator]
+
+//*****************************************************
+//**********BIOREACTOR
+@PART[BioMass_BioReactor]
 {
-  @category = -1
+  -MODULE[ModuleResourceConverter]:HAS[#tag[bioReactorOne]] {}
+  -MODULE[ModuleResourceConverter]:HAS[#tag[bioReactorTwo]] {}
+    MODULE
+    {
+        name = ModuleResourceConverter
+        tag = bioReactorOne //for moduleManager
+        ConverterName = BioMass Reactor
+        StartActionName = Start Reactor
+        StopActionName = Stop Reactor
+        AutoShutdown = false
+        FillAmount = 1.0
+        AlwaysActive = false
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 10
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = BioMass
+            Ratio = 1.0
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = Oxygen
+            Ratio = 0.0111111
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = CarbonDioxide
+            Ratio = 0.0100000
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+                OUTPUT_RESOURCE
+        {
+            ResourceName = LiquidFuel
+            Ratio = 0.4000000
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+                OUTPUT_RESOURCE
+        {
+            ResourceName = Oxidizer
+            Ratio = 0.4000000
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+    }
 }
-@PART[BioMassGreenGasRegulator]
+
+//*****************************************************
+//****MICROBIOME
+@PART[BioMass_MicroBiome]
 {
-  @category = -1
+  MODULE
+  {
+      name = BiologicalProcess
+      tag = WasteBreakdown//for moduleManager
+      ConverterName = Waste Breakdown
+      StartActionName = Start Waste Breakdown
+      StopActionName = Stop Waste Breakdown
+      AutoShutdown = false
+      FillAmount = 1.0
+      AlwaysActive = false
+      GeneratesHeat = false
+      UseSpecialistBonus = true
+      SpecialistEfficiencyFactor = 0.2
+      SpecialistBonusBase = 0.05
+      Specialty = Biologist
+      EfficiencyBonus = 1
+      INPUT_RESOURCE{
+         ResourceName = Waste
+         Ratio = 0.0001
+         FlowMode = STAGE_PRIORITY_FLOW
+      }
+      INPUT_RESOURCE{
+         ResourceName = WasteWater
+         Ratio = 0.0001
+         FlowMode = STAGE_PRIORITY_FLOW
+      }
+      OUTPUT_RESOURCE{
+         ResourceName = MicroFlora
+         Ratio = 0.001
+         FlowMode = STAGE_PRIORITY_FLOW
+         DumpExcess = false
+      }
+  }
+  MODULE
+  {
+      name = BiologicalProcess
+      tag = NutrientOutput//for moduleManager
+      ConverterName = Nutrient Output
+      StartActionName = Start Nutrient Output
+      StopActionName = Stop Nutrient Output
+      AutoShutdown = false
+      FillAmount = 1.0
+      AlwaysActive = false
+      GeneratesHeat = false
+      UseSpecialistBonus = true
+      SpecialistEfficiencyFactor = 0.2
+      SpecialistBonusBase = 0.05
+      Specialty = Biologist
+      EfficiencyBonus = 1
+      INPUT_RESOURCE{
+         ResourceName = MicroFlora
+         Ratio = 0.001
+         FlowMode = STAGE_PRIORITY_FLOW
+      }
+      OUTPUT_RESOURCE{
+         ResourceName = CarbonDioxide
+         Ratio = 0.00001
+         FlowMode = STAGE_PRIORITY_FLOW
+         DumpExcess = false
+      }
+      OUTPUT_RESOURCE{
+         ResourceName = Nutrients
+         Ratio = 0.000075
+         FlowMode = STAGE_PRIORITY_FLOW
+         DumpExcess = false
+      }
+      OUTPUT_RESOURCE{
+         ResourceName = Water
+         Ratio = 0.00111
+         FlowMode = STAGE_PRIORITY_FLOW
+         DumpExcess = false
+      }
+  }
+  MODULE
+  {
+      name = ModuleResourceConverter
+      tag = WaterValve//for moduleManager
+      ConverterName = Water Valve
+      StartActionName = Start Water Valve
+      StopActionName = Stop Water Valve
+      AutoShutdown = false
+      FillAmount = 1.0
+      AlwaysActive = false
+      GeneratesHeat = false
+      UseSpecialistBonus = true
+      SpecialistEfficiencyFactor = 0.2
+      SpecialistBonusBase = 0.05
+      Specialty = Engineer
+      EfficiencyBonus = 1
+      INPUT_RESOURCE{
+         ResourceName = Waste
+         Ratio = 0.0792893333333333
+         FlowMode = STAGE_PRIORITY_FLOW
+      }
+      INPUT_RESOURCE{
+         ResourceName = Water
+         Ratio = 0.118934
+         FlowMode = STAGE_PRIORITY_FLOW
+      }
+      OUTPUT_RESOURCE{
+         ResourceName = WasteWater
+         Ratio = 0.177513432835821
+         FlowMode = STAGE_PRIORITY_FLOW
+         DumpExcess = false
+      }
+  }   
+  RESOURCE{
+     name = Waste
+     amount = 0
+     maxAmount = 10
+  }
+  RESOURCE{
+     name = WasteWater
+     amount = 0
+     maxAmount = 10
+  }
+    RESOURCE{
+     name = MicroFlora
+     amount = 1
+     maxAmount = 10
+  }
+    RESOURCE{
+     name = CarbonDioxide
+     amount = 0
+     maxAmount = 10
+  }
+    RESOURCE{
+     name = Nutrients
+     amount = 0
+     maxAmount = 10
+  }
+    RESOURCE{
+     name = Water
+     amount = 0
+     maxAmount = 10
+  }
 }
-@PART[BioMassGreyGasRegulator]
+
+//*****************************************************
+//**Greenhouses
+@PART[BioMass_Yellow_Greenhouse]
 {
-  @category = -1
+  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
+  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -RESOURCE[Light]{}
+  -RESOURCE[BioMass]{}
+  -RESOURCE[Oxygen]{}
+  -RESOURCE[CarbonDioxide]{}
+  -RESOURCE[Nutrients]{}
+  -RESOURCE[Water]{}
+  -RESOURCE[Waste]{}
+  MODULE
+  {
+    name = AnimatedGenerator
+    tag = ArtificialLighting
+    ConverterName = Artificial Lighting
+    AnimationName = exhaustPort
+    FillAmount = 1.0
+    AlwaysActive = false
+    StartActionName = Lights On
+    StopActionName = Lights Off
+    AutoShutdown = true
+    GeneratesHeat = true
+    UseSpecialistBonus = true
+    SpecialistEfficiencyFactor = 0.2
+    SpecialistBonusBase = 0.05
+    Specialty = Engineer
+    EfficiencyBonus = 1    
+    INPUT_RESOURCE
+    {
+      ResourceName = ElectricCharge
+      Ratio = 0.5
+    }   
+    OUTPUT_RESOURCE
+    {
+      ResourceName = Light
+      Ratio = 0.5
+      DumpExcess = true
+    }
+  }
+  //Shutters
+  MODULE{
+    name = GreenHouse
+    animationName = door
+    animSwitch = True
+    sunTracking = true
+    raycastTransformName = glass
+    pivotName =  glass
+    isBreakable = false
+    resourceName = Light
+    chargeRate = 1.0
+    powerCurve
+    {
+      key = 206000000000 0 0 0
+      key = 13599840256 1 0 0
+      key = 68773560320 0.5 0 0
+      key = 0 0 0 0
+    }
+  }
+  //This module "consumes" light so it can't be stored
+  MODULE
+  {
+      name = ModuleGenerator
+      tag = lightRemover
+      isAlwaysActive = true
+      INPUT_RESOURCE
+      {
+          name = Light
+          rate = 0.2
+      }
+  }
+  MODULE
+  {
+    name = BiologicalProcess
+    tag = Photosynthesis
+    ConverterName = Food Production
+    FillAmount = 1.0
+    AlwaysActive = true
+    AutoShutdown = true
+    GeneratesHeat = false
+    UseSpecialistBonus = true
+    SpecialistEfficiencyFactor = 0.2
+    SpecialistBonusBase = 0.05
+    Specialty = Biologist
+    EfficiencyBonus = 1
+    INPUT_RESOURCE
+    {
+      ResourceName = ElectricCharge
+      Ratio = 1.0
+    }
+    INPUT_RESOURCE
+    {
+      ResourceName = Light
+      Ratio = 0.5
+    }
+    INPUT_RESOURCE
+    {
+      ResourceName = CarbonDioxide
+      Ratio = 0.01029066 //L
+      FlowMode = STAGE_PRIORITY_FLOW
+    }
+    INPUT_RESOURCE
+    {
+      ResourceName = Nutrients
+      Ratio = 0.00000079 //L
+      FlowMode = STAGE_PRIORITY_FLOW
+    }
+    OUTPUT_RESOURCE
+    {
+      ResourceName = Oxygen
+      Ratio = 0.01029066 //L
+      DumpExcess = false
+      FlowMode = STAGE_PRIORITY_FLOW
+    }
+    OUTPUT_RESOURCE
+    {
+      ResourceName = Food
+      Ratio = 0.00004143 //L
+      DumpExcess = false
+      FlowMode = STAGE_PRIORITY_FLOW
+    }
+  }
+  //-----------onboard resources-------------//
+  RESOURCE{
+    name = Light
+    amount = 0.0
+    maxAmount = 1
+  }
+  RESOURCE{
+    name = Food
+    amount = 10
+    maxAmount = 200
+  }
+  RESOURCE{
+    name = Oxygen
+    amount = 0
+    maxAmount = 1
+  }
+  RESOURCE{
+    name = CarbonDioxide
+    amount = 0
+    maxAmount = 1
+  }
+  RESOURCE{
+    name = Nutrients
+    amount = 0
+    maxAmount = 1
+  }
 }
+
+@PART[BioMass_Blue_Greenhouse]
+{
+  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
+  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -RESOURCE[Light]{}
+  -RESOURCE[BioMass]{}
+  -RESOURCE[Oxygen]{}
+  -RESOURCE[CarbonDioxide]{}
+  -RESOURCE[Nutrients]{}
+  -RESOURCE[Water]{}
+  -RESOURCE[Waste]{}
+  MODULE
+  {
+     name = AnimatedGenerator
+     tag = ArtificialLighting
+     ConverterName = Artificial Lighting
+     AnimationName = exhaustPort
+     FillAmount = 1.0
+     AlwaysActive = false
+     StartActionName = Lights On
+     StopActionName = Lights Off
+     AutoShutdown = true
+     GeneratesHeat = true
+     UseSpecialistBonus = true
+     SpecialistEfficiencyFactor = 0.2
+     SpecialistBonusBase = 0.05
+     Specialty = Engineer
+     EfficiencyBonus = 1     
+     INPUT_RESOURCE
+     {
+      ResourceName = ElectricCharge
+      Ratio = 0.5
+     }    
+     OUTPUT_RESOURCE
+     {
+      ResourceName = Light
+      Ratio = 0.5
+      DumpExcess = true
+     }
+  }
+  //Shutters
+  MODULE{
+    name = GreenHouse
+    animationName = door
+    animSwitch = True
+    sunTracking = true
+    raycastTransformName = glass
+    pivotName =  glass
+    isBreakable = false
+    resourceName = Light
+    chargeRate = 1.0
+    powerCurve
+    {
+      key = 206000000000 0 0 0
+      key = 13599840256 1 0 0
+      key = 68773560320 0.5 0 0
+      key = 0 0 0 0
+    }
+  }
+  //This module "consumes" light so it can't be stored
+  MODULE
+  {
+      name = ModuleGenerator
+      tag = lightRemover
+      isAlwaysActive = true
+      INPUT_RESOURCE
+      {
+          name = Light
+          rate = 0.2
+      }
+    }
+  MODULE
+  {
+    name = BiologicalProcess
+    tag = Photosynthesis
+    ConverterName = Food Production
+    FillAmount = 1.0
+    AlwaysActive = true
+    AutoShutdown = true
+    GeneratesHeat = false
+    UseSpecialistBonus = true
+    SpecialistEfficiencyFactor = 0.2
+    SpecialistBonusBase = 0.05
+    Specialty = Biologist
+    EfficiencyBonus = 1
+    INPUT_RESOURCE
+    {
+      ResourceName = ElectricCharge
+      Ratio = 1.0
+    }
+    INPUT_RESOURCE
+    {
+      ResourceName = Light
+      Ratio = 0.5
+    }
+    INPUT_RESOURCE
+    {
+      ResourceName = CarbonDioxide
+      Ratio = 0.01029066 //L
+      FlowMode = STAGE_PRIORITY_FLOW
+    }
+    OUTPUT_RESOURCE
+    {
+      ResourceName = Oxygen
+      Ratio = 0.01029066 //L
+      DumpExcess = false
+      FlowMode = STAGE_PRIORITY_FLOW
+    }
+    OUTPUT_RESOURCE
+    {
+      ResourceName = Waste
+      Ratio = 0.00000735 //L
+      DumpExcess = false
+      FlowMode = STAGE_PRIORITY_FLOW
+    }
+  }
+  //-----------onboard resources-------------//
+  RESOURCE{
+    name = Light
+    amount = 0.0
+    maxAmount = 1
+  }
+  RESOURCE{
+    name = Oxygen
+    amount = 0
+    maxAmount = 1
+  }
+  RESOURCE{
+    name = CarbonDioxide
+    amount = 0
+    maxAmount = 1
+  }
+  RESOURCE{
+    name = Waste
+    amount = 0
+    maxAmount = 200
+  }
+}
+
+@PART[BioMass_Red_Greenhouse]
+{
+  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
+  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -RESOURCE[Light]{}
+  -RESOURCE[BioMass]{}
+  -RESOURCE[Oxygen]{}
+  -RESOURCE[CarbonDioxide]{}
+  -RESOURCE[Nutrients]{}
+  -RESOURCE[Water]{}
+  -RESOURCE[Waste]{}
+  MODULE
+  {
+     name = AnimatedGenerator
+     tag = ArtificialLighting
+     ConverterName = Artificial Lighting
+     AnimationName = exhaustPort
+     FillAmount = 1.0
+     AlwaysActive = false
+     StartActionName = Lights On
+     StopActionName = Lights Off
+     AutoShutdown = true
+     GeneratesHeat = true
+     UseSpecialistBonus = true
+     SpecialistEfficiencyFactor = 0.2
+     SpecialistBonusBase = 0.05
+     Specialty = Engineer
+     EfficiencyBonus = 1     
+     INPUT_RESOURCE
+     {
+      ResourceName = ElectricCharge
+      Ratio = 0.5
+     }    
+     OUTPUT_RESOURCE
+     {
+      ResourceName = Light
+      Ratio = 0.5
+      DumpExcess = true
+     }
+  }
+  //Shutters
+  MODULE{
+    name = GreenHouse
+    animationName = door
+    animSwitch = True
+    sunTracking = true
+    raycastTransformName = glass
+    pivotName =  glass
+    isBreakable = false
+    resourceName = Light
+    chargeRate = 1.0
+    powerCurve
+    {
+      key = 206000000000 0 0 0
+      key = 13599840256 1 0 0
+      key = 68773560320 0.5 0 0
+      key = 0 0 0 0
+    }
+  }
+  //This module "consumes" light so it can't be stored
+  MODULE
+  {
+      name = ModuleGenerator
+      tag = lightRemover
+      isAlwaysActive = true
+      INPUT_RESOURCE
+      {
+          name = Light
+          rate = 0.2
+      }
+    }
+  MODULE
+  {
+    name = BiologicalProcess
+    tag = Photosynthesis
+    ConverterName = BioMass Production
+    FillAmount = 1.0
+    AlwaysActive = true
+    AutoShutdown = true
+    GeneratesHeat = false
+    UseSpecialistBonus = true
+    SpecialistEfficiencyFactor = 0.2
+    SpecialistBonusBase = 0.05
+    Specialty = Biologist
+    EfficiencyBonus = 1  
+    INPUT_RESOURCE
+    {
+      ResourceName = ElectricCharge
+      Ratio = 1.0
+    }
+    INPUT_RESOURCE
+    {
+      ResourceName = Light
+      Ratio = 0.5
+    }
+    INPUT_RESOURCE
+    {
+      ResourceName = Nutrients
+      Ratio = 0.00000079 //L
+      FlowMode = STAGE_PRIORITY_FLOW
+    }
+    INPUT_RESOURCE
+    {
+      ResourceName = CarbonDioxide
+      Ratio = 0.01029066 //L
+      FlowMode = STAGE_PRIORITY_FLOW
+    }
+    OUTPUT_RESOURCE
+    {
+      ResourceName = BioMass
+      Ratio = 0.00000304 //L
+      DumpExcess = false
+      FlowMode = STAGE_PRIORITY_FLOW
+    }
+    OUTPUT_RESOURCE
+    {
+      ResourceName = Oxygen
+      Ratio = 0.01029066 //L
+      DumpExcess = false
+      FlowMode = STAGE_PRIORITY_FLOW
+    }
+  }
+  //-----------onboard resources-------------//
+  RESOURCE{
+    name = Light
+    amount = 0.0
+    maxAmount = 1
+  }
+  RESOURCE{
+    name = BioMass
+    amount = 10
+    maxAmount = 200
+  }
+  RESOURCE{
+    name = Oxygen
+    amount = 0
+    maxAmount = 1
+  }
+  RESOURCE{
+    name = CarbonDioxide
+    amount = 0
+    maxAmount = 1
+  }
+  RESOURCE{
+    name = Nutrients
+    amount = 0
+    maxAmount = 1
+  }
+}
+
+//**********end modules********************************************************************************
+
+//**********resources**********************************************************************************
+
+
+
+//**********resources**********************************************************************************
+
+
+
+
+//*****************************************************
+//**SCIENCE
+//****HIDE THESE FOR NOW. 
+//@PART[BioMassAGStudy]
+//{
+//  @category = Science
+//}
+//@PART[BioMassGooExp]
+//{
+//  @category = Science
+//}
+
+
+
 
 
 //*****************************************************
@@ -347,103 +1108,135 @@ DifficultySetting{
 
 
 
-//*****************************************************
-//*****UTILITIES
-//**BioReaction
-@PART[BioMassBioReactor]
+
+//**********For BioMass Tech Tree*********************
+@TechTree:FOR[BioMass]
 {
-  @category = Utility
-  @description = Based on biofuel designs in use at the end of the war, the bioreactor is a space-ready, state-of-the-art hydrothermal liquefaction and catalytic hydrothermal gasification reactor and refinery. It consumes BioMass and produces Liquid/Oxidizer biofuels. The reaction outputs excess Oxidizer that can be used in the compressor module to fill MonoPropellant tanks. 
-  MODULE
+  RDNode
   {
-    name = ModuleSAS    
-  }
-  -MODULE[BioGen]:HAS[#tag[BioBreakdownOne]] {}
-  MODULE{
-    name = BioGen
-    tag = BioBreakdownOne
-    bioLabel = BioMass Reactor
-    RequiresAllInputs = true
-    bioIn{
-      ElectricCharge = 10
-      BioMass = 0.0000168
-      Water = 0.0000064
-    }
-    bioOut{
-      LiquidFuel = 0.0000024
-      Oxidizer = 0.0000018
+    id = bioSciences
+    title = Biosciences
+    description = Bioscience is the quest for The Answer To Life... It stops short of The Universe and Everything, however.
+    cost = 68
+    hideEmpty = False
+    nodeName = node3_biology
+    anyToUnlock = False
+    icon = BioMassBiology
+    pos = -1982,611.1,-1
+    scale = 0.6
+    Parent
+    {
+      parentID = survivability
+      lineFrom = RIGHT
+      lineTo = LEFT
     }
   }
+  RDNode
+  {
+    id = bioSystems
+    title = Biosystems Engineering
+    description = The Study of biological systems and how to engineer them.
+    cost = 68
+    hideEmpty = False
+    nodeName = node3_bioSystems
+    anyToUnlock = False
+    icon = BioMassBioSystems
+    pos = -1723,611.1,-1
+    scale = 0.6
+    Parent
+    {
+      parentID = bioSciences
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }
+    Parent
+    {
+      parentID = basicScience
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }
+  }
+  RDNode
+  {
+    id = sustainability
+    title = Sustainability
+    description = The Study keeping things alive in a closed system.
+    cost = 68
+    hideEmpty = False
+    nodeName = node3_sustainability
+    anyToUnlock = False
+    icon = BioMassSustainability
+    pos = -1723,511.1,-1
+    scale = 0.6
+    Parent
+    {
+      parentID = bioSciences
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }   
+  } 
+  RDNode
+  {
+    id = spaceAg
+    title = Space Agriculture
+    description = The production of food in space!
+    cost = 120
+    hideEmpty = False
+    nodeName = node8_spaceAg
+    anyToUnlock = False
+    icon = BioMassClosedSystem
+    pos = -1519,611.1,-1    
+    scale = 0.6
+    Parent
+    {
+      parentID = bioSystems
+      lineFrom = RIGHT
+      lineTo = LEFT
+    } 
+  }
+  RDNode
+  {
+    id = bioFuels
+    title = Renewable BioFuels
+    description = The production of biofuel!
+    cost = 1100
+    hideEmpty = False
+    nodeName = node5_longTermSustainability
+    anyToUnlock = False
+    icon = BioMassRenewables
+    pos = -1519,511.1,-1
+    scale = 0.6    
+    Parent
+    {
+      parentID = sustainability
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }
+  }
+  RDNode
+  {
+    id = astroBiology
+    title = Astrobiology
+    description = Astrobiology is the quest for The Answer To Life...IN SPACE!! Still nothing about The Universe and Everything.
+    cost = 1100
+    hideEmpty = False
+    nodeName = node5_astroBiology
+    anyToUnlock = False
+    icon = BioMassAstrobiology
+    pos = -1309,611.1,-1
+    scale = 0.6
+    Parent
+    {
+      parentID = spaceAg
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }    
+    Parent
+    {
+      parentID = bioFuels
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }    
+  }
 }
-
-@PART[BioMassMicroBiome]
-{
-  //@node_stack_top = 0.0, 0, 0.0, 0.0, 1.0, 0
-  //@attachRules = 1,0,0,1,0
-  @category = Utility
-  @description = Regardless of how tidy you are, there's always a little something that you need to store, but you'd rather not. This is doubly true in space when you are dealing with biological waste. Essentially nothing more than a space faring petri-dish, the Micro-Biome provides a suitable environment to cultivate Mystery Goo™ on a large scale. With in the module, Mystery Goo happily dine on any available waste products to produce Nutrients. One can also add water to the device to generate waste water...if you're into that sort of thing.
-  MODULE
-  {
-    name = ModuleSAS    
-  }
-  -MODULE[BioGen]:HAS[#tag[WasteBreakdown]] {}
-  -MODULE[BioGen]:HAS[#tag[NutrientOutput]] {}
-  MODULE
-  {
-      name = BioGen
-      tag = WasteBreakdown
-      bioLabel = Waste Breakdown
-      RequiresAllInputs = true
-      AlwaysActive = true
-      hasMax = true
-      bioIn{
-          ElectricCharge = 0.5
-          Waste = 0.0000074
-          WasteWater = 0.0000021
-      }
-      bioOut{
-          MicroFlora = 0.0000017
-      }
-  }
-  MODULE
-  {
-      name = BioGen
-      tag = NutrientOutput
-      bioLabel = Nutrient Production
-      AlwaysActive = false
-      RequiresAllInputs = true
-      bioIn{
-          MicroFlora = 0.0000017
-          WasteWater = 0.0000082
-      }
-      bioOut{
-          CarbonDioxide = 0.0025705
-          Nutrients = 0.0000011251
-          Water = 0.0000021
-      }
-  }
-  MODULE
-  {
-      name = BioGen
-      tag = Watervalve
-      bioLabel = Water valve
-      RequiresAllInputs = true
-      AlwaysActive = false
-      hasMax = true
-      bioIn{
-          Water = 0.0792893
-          Waste = 0.1189340
-      }
-      bioOut{
-          WasteWater = 0.1775134
-      }
-  }
-  RESOURCE{
-    name = WasteWater
-    amount = 0
-    maxAmount = 10
-  }
-}
-
-
-
+//**********END tech tree nodes*********************

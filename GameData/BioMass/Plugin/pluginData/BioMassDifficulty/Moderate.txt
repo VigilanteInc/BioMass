@@ -2,6 +2,134 @@ DifficultySetting{
 	setting = Medium
 }
 
+//**********categories, visibility, descriptions, mass, rescale, tech required*********************
+@PART[BioMass_RedGasRegulator]{
+   @Category=Utility
+   @Title=Gas Compressor, Hydrogen 
+   @description=This compressor is certainly not to be used to inflate giant balloons. It should only be used to compress hydrogen into monopropellant for fuel or storage, or to reverse the process. Don't make me tell you again, Bill.
+   @rescaleFactor=0.6
+   @TechRequired=electrics
+   @cost=3800
+   @manufacturer=DG Aerospace Renewables
+   @mass=0.12
+}
+
+@PART[BioMass_GreyGasRegulator]{
+   @Category=Utility
+   @Title=Gas Compressor: Carbon Dioxide
+   @description=As a part of the war effort, Stodola LLC attempted to manufacture a series of compressed gas weapons. Once the war ended, the Compressed Comblaminator 9000 was rebranded a CO2 Gas Compressor and offered to the KSP, where it can be used with better intentions, but sometimes the same results.
+   @rescaleFactor=0.6
+   @TechRequired=electrics
+   @cost=3800
+   @manufacturer=Stodola, LLC.
+   @mass=0.12
+}
+
+@PART[BioMass_WhiteGasRegulator]{
+   @Category=Utility
+   @Title=Gas Compressor: Oxygen
+   @description=Originally conceived as a medical device to provide oxygen to patients at rates far greater than natural, and thus speed recovery, initial tests did not show positive outcomes for patients. Unwilling to abandon the R&D investment, Stodola, LLC offered it to the KSP, which gladly accepted the technology to convert oxygen to oxidizer and back again.
+   @rescaleFactor=0.6
+   @TechRequired=electrics
+   @cost=3800
+   @manufacturer=Stodola, LLC.
+   @mass=0.12
+}
+
+@PART[BioMass_GreenGasRegulator]{
+   @Category=Utility
+   @Title=Gas Compressor: Kethane
+   @description=Kethane gas is immensely dangerous in gas form since it is highly flamable. It's best to compress the stuff and store it as a liquid in one of the high quality tanks produced by the Organization of Kethane Equipment Producers. This has been a paid advertisement from the Organization of Kethane Equipment Producers. OKEP: not a drug cartel.
+   @rescaleFactor=0.6
+   @TechRequired=electrics
+   @cost=3800
+   @manufacturer=Stodola, LLC.
+   @mass=0.12
+}
+
+//**********END categories, visibility, descriptions, mass, rescale, tech required*********************
+
+//*****************************************************
+//*****GAS REGULATORS*****
+@PART[BioMass_RedGasRegulator]
+{
+  -MODULE[ModuleResourceConverter]:HAS[#tag[makeMonoPropellant]] {}
+  MODULE
+  {
+      name = ModuleResourceConverter
+      tag = makeMonoPropellant //for moduleManager
+      ConverterName = H2 Compression
+      StartActionName = Start Compression
+      StopActionName = Stop Compression
+      AutoShutdown = false
+      GeneratesHeat = false
+      UseSpecialistBonus = true
+      SpecialistEfficiencyFactor = 0.2
+      SpecialistBonusBase = 0.05
+      Specialty = Engineer
+      EfficiencyBonus = 1
+      INPUT_RESOURCE
+      {
+          ResourceName = ElectricCharge
+          Ratio = 4
+      }
+      INPUT_RESOURCE
+      {
+          ResourceName = Hydrogen
+          Ratio = 9.8765432
+          FlowMode = STAGE_PRIORITY_FLOW
+      }
+      OUTPUT_RESOURCE
+      {
+          ResourceName = MonoPropellant
+          Ratio = 0.0010000
+          DumpExcess = false
+          FlowMode = STAGE_PRIORITY_FLOW
+       }
+  }
+  MODULE
+    {
+      name = ModuleResourceConverter
+      tag = ReleaseH2 //for moduleManager
+      ConverterName = Hydrogen Release Valve
+      StartActionName = Open Valve
+      StopActionName = Close Valve
+      AutoShutdown = false
+      FillAmount = 1.0
+      GeneratesHeat = false
+      UseSpecialistBonus = true
+      SpecialistEfficiencyFactor = 0.2
+      SpecialistBonusBase = 0.05
+      Specialty = Engineer
+      EfficiencyBonus = 1
+      INPUT_RESOURCE
+      {
+          ResourceName = ElectricCharge
+          Ratio = 0.1
+      }
+      INPUT_RESOURCE
+      {
+          ResourceName = MonoPropellant
+          Ratio = 0.0010
+          FlowMode = STAGE_PRIORITY_FLOW
+      }
+      OUTPUT_RESOURCE
+      {
+          ResourceName = Hydrogen
+          Ratio = 9.8765432
+          DumpExcess = false
+          FlowMode = STAGE_PRIORITY_FLOW
+      }
+    }
+}
+
+
+
+
+
+
+
+
 //*****STATION HUBS*****
 @PART[BiomassStationHub1]
 {
@@ -101,71 +229,6 @@ DifficultySetting{
 
 
 
-
-//*****GAS REGULATORS*****
-@PART[BioMassRedGasRegulator]
-{
-  @rescaleFactor = 0.6
-  @cost = 3800
-  @category = Utility
-  @title = Hydrogen Gas Compressor
-  @manufacturer = Stodola, LLC.
-  @description = This compressor is certainly not to be used to inflate giant balloons. It should only be used to compress hydrogen into monopropellant for fuel or storage, or to reverse the process. Don't make me tell you again, Bill.
-  @mass = 0.12
-  @node_stack_top =    -0.01, 0.7, 0.07, 0.0, 1.0, 0.0, 1
-  @node_stack_bottom = -0.01, -0.65, 0.06, 0.0, 1.0, 0.0, 1
-  -MODULE[BioGen,makeMonoPropellant]{}
-  MODULE{
-    //needs to convert from real-world to kerbal
-    // This is a huge fudge since Monopropellant isn't actually Hydrogen
-    //449:1
-    name = BioGen
-    bioLabel = Hydrogen Compression
-    RequiresAllInputs = true
-    smartGen = true
-    hasMax = true
-    bioIn{
-        ElectricCharge = 4.0
-        Hydrogen = 0.449
-    }
-    bioOut{
-        MonoPropellant=0.0010
-    }
-  }
-  MODULE{
-    //needs to convert from real-world to kerbal
-    // This is a huge fudge since Monopropellant isn't actually Hydrogen
-    name = BioGen
-    tag = releaseMonoPropellant //for moduleManager
-    bioLabel = Release Valve
-    RequiresAllInputs = true
-    smartGen = true
-    hasMax = true
-    bioIn{
-        MonoPropellant = 0.0010
-        ElectricCharge = 0.1
-    }
-    bioOut{
-        Hydrogen = 0.449
-    }
-  }
-
-}
-
-@PART[BioMassWhiteGasRegulator]
-{
-  @category = Utility
-}
-
-@PART[BioMassGreenGasRegulator]
-{
-  @category = Utility
-}
-
-@PART[BioMassGreyGasRegulator]
-{
-  @category = Utility
-}
 
 
 
@@ -1220,4 +1283,134 @@ DifficultySetting{
 }
 
 
-
+//**********For BioMass Tech Tree*********************
+@TechTree:FOR[BioMass]
+{
+  RDNode
+  {
+    id = bioSciences
+    title = Biosciences
+    description = Bioscience is the quest for The Answer To Life... It stops short of The Universe and Everything, however.
+    cost = 68
+    hideEmpty = False
+    nodeName = node3_biology
+    anyToUnlock = False
+    icon = BioMassBiology
+    pos = -1982,611.1,-1
+    scale = 0.6
+    Parent
+    {
+      parentID = survivability
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }
+  }
+  RDNode
+  {
+    id = bioSystems
+    title = Biosystems Engineering
+    description = The Study of biological systems and how to engineer them.
+    cost = 68
+    hideEmpty = False
+    nodeName = node3_bioSystems
+    anyToUnlock = False
+    icon = BioMassBioSystems
+    pos = -1723,611.1,-1
+    scale = 0.6
+    Parent
+    {
+      parentID = bioSciences
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }
+    Parent
+    {
+      parentID = basicScience
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }
+  }
+  RDNode
+  {
+    id = sustainability
+    title = Sustainability
+    description = The Study keeping things alive in a closed system.
+    cost = 68
+    hideEmpty = False
+    nodeName = node3_sustainability
+    anyToUnlock = False
+    icon = BioMassSustainability
+    pos = -1723,511.1,-1
+    scale = 0.6
+    Parent
+    {
+      parentID = bioSciences
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }   
+  } 
+  RDNode
+  {
+    id = spaceAg
+    title = Space Agriculture
+    description = The production of food in space!
+    cost = 120
+    hideEmpty = False
+    nodeName = node8_spaceAg
+    anyToUnlock = False
+    icon = BioMassClosedSystem
+    pos = -1519,611.1,-1    
+    scale = 0.6
+    Parent
+    {
+      parentID = bioSystems
+      lineFrom = RIGHT
+      lineTo = LEFT
+    } 
+  }
+  RDNode
+  {
+    id = bioFuels
+    title = Renewable BioFuels
+    description = The production of biofuel!
+    cost = 1100
+    hideEmpty = False
+    nodeName = node5_longTermSustainability
+    anyToUnlock = False
+    icon = BioMassRenewables
+    pos = -1519,511.1,-1
+    scale = 0.6    
+    Parent
+    {
+      parentID = sustainability
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }
+  }
+  RDNode
+  {
+    id = astroBiology
+    title = Astrobiology
+    description = Astrobiology is the quest for The Answer To Life...IN SPACE!! Still nothing about The Universe and Everything.
+    cost = 1100
+    hideEmpty = False
+    nodeName = node5_astroBiology
+    anyToUnlock = False
+    icon = BioMassAstrobiology
+    pos = -1309,611.1,-1
+    scale = 0.6
+    Parent
+    {
+      parentID = spaceAg
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }    
+    Parent
+    {
+      parentID = bioFuels
+      lineFrom = RIGHT
+      lineTo = LEFT
+    }    
+  }
+}
+//**********END tech tree nodes*********************
