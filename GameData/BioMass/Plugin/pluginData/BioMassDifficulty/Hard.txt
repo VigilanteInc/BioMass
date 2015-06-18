@@ -217,7 +217,7 @@ DifficultySetting{
    @title=Greenhouse: Expand-o-matic
    @description=DG Aero-Space hired a dozens of theoretical physicists to try and find a way to get more space into their greenhouses. There was initially great excitement about saying water was 1 unit per liter, but it just led to confusion. In end the manager for the project saw a parachute deploy and resolved to fire the physicists and hire seamstresses. The final design is a greenhouse that triples the interior growing area when the "wings" are deployed.
    @rescaleFactor=1
-   @TechRequired=astrobiology
+   @TechRequired=astroBiology
    @cost=4500
    @manufacturer=DG Aero-Space Renewables
    @mass=7
@@ -2851,6 +2851,7 @@ DifficultySetting{
 @PART[CryogenicAtmosphericSeperator]
 {
   @category = Utility
+  @TechRequired=electrics
 }
 
 //**********For BioMass Tech Tree**********************************************************************

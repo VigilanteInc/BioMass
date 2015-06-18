@@ -67,7 +67,7 @@ DifficultySetting{
 }
 
 
-@PART[BioMass_SeedBank]{
+@PART[BioMass_SeedBank_Flat]{
    @category=-1
    @TechRequired=-1
 }
@@ -133,6 +133,18 @@ DifficultySetting{
    @TechRequired=-1
 }
 
+@PART[CryogenicAtmosphericSeperator]
+{
+  @category = -1
+  @TechRequired=-1
+}
+
+@PART[BioMass_MicroBiome]
+{
+  @category = Science
+  @TechRequired= largeElectrics
+}
+
 @PART[BioMass_BioReactor]{
    @category=Science
    @title=Bioreactor
@@ -142,6 +154,24 @@ DifficultySetting{
    @cost=4500
    @manufacturer=DG Aero-Space Renewables
    @mass=5
+}
+
+@PART[BioMass_Yellow_Greenhouse]
+{
+   @category=Science
+   @TechRequired=largeElectrics
+}
+
+@PART[BioMass_Blue_Greenhouse]
+{
+   @category=Science
+   @TechRequired=largeElectrics
+}
+
+@PART[BioMass_Red_Greenhouse]
+{
+   @category=Science
+   @TechRequired=largeElectrics 
 }
 
 @PART[BioMass_Expanding_Greenhouse]{
