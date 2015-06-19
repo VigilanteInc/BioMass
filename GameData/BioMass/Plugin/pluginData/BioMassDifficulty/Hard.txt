@@ -180,6 +180,8 @@ DifficultySetting{
 }
 
 @PART[BioMass_Yellow_Greenhouse]{
+   @node_stack_top = 0.0, 1.65, 0.0, 0.0, 1.0, 0.0, 1
+   @node_stack_bottom = 0.0, -1.59, 0.0, 0.0, -1.0, 0.0, 1
    @category=Utility
    @title=Greenhouse: Experimental
    @description=How well would plants grow in space? Who knows! To try and find out the KSC authorized the construction of a simple greenhouse module. Good luck, astroplants!
@@ -791,28 +793,9 @@ DifficultySetting{
 //****Greenhouses*********
 @PART[BioMass_Yellow_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
-  //---open shutters to sunlight---//
-  MODULE{
-    name = GreenHouse
-    animationName = door
-    animSwitch = True
-    sunTracking = true
-    raycastTransformName = glass
-    pivotName =  glass
-    isBreakable = false
-    resourceName = Light
-    chargeRate = 1.0
-    powerCurve
-    {
-      key = 206000000000 0 0 0
-      key = 13599840256 1 0 0
-      key = 68773560320 0.5 0 0
-      key = 0 0 0 0
-    }
-  }
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   //---removes light so it can't be stored---//
   MODULE{
       name = ModuleGenerator
@@ -1066,9 +1049,9 @@ DifficultySetting{
 }
 @PART[BioMass_Blue_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   //---artificial lighting---//
   MODULE{
     name = AnimatedGenerator
@@ -1404,9 +1387,9 @@ DifficultySetting{
 }
 @PART[BioMass_Red_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   //---artificial lighting---//
   MODULE{
     name = AnimatedGenerator
@@ -1742,9 +1725,9 @@ DifficultySetting{
 }
 @PART[BioMass_Algae_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   //---artificial lighting---//
   MODULE{
     name = AnimatedGenerator
@@ -2107,9 +2090,9 @@ DifficultySetting{
 }
 @PART[BioMass_Expanding_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   //---artificial lighting---//
   MODULE{
     name = AnimatedGenerator
@@ -2585,6 +2568,12 @@ DifficultySetting{
   -RESOURCE[Waste]{}
   RESOURCE
   {
+    name = Light
+    amount = 0.0
+    maxAmount = 1.0 //L
+  }
+  RESOURCE
+  {
     name = Oxygen
     amount = 0.0
     maxAmount = 101.120425 //L
@@ -2597,14 +2586,8 @@ DifficultySetting{
   }
   RESOURCE
   {
-    name = Seeds
-    amount = 0.2
-    maxAmount = 2.0 //L
-  }
-  RESOURCE
-  {
     name = BioMass
-    amount = 0
+    amount = 0.45
     maxAmount = 0.902952766 //L
   }
   RESOURCE
