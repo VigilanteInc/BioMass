@@ -463,9 +463,9 @@ DifficultySetting{
 //**Greenhouses
 @PART[BioMass_Yellow_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}AS[#tag[Photosynthesis]] {}
   -RESOURCE[Light]{}
   -RESOURCE[BioMass]{}
   -RESOURCE[Oxygen]{}
@@ -614,9 +614,9 @@ DifficultySetting{
 
 @PART[BioMass_Blue_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   -RESOURCE[Light]{}
   -RESOURCE[BioMass]{}
   -RESOURCE[Oxygen]{}
@@ -754,9 +754,9 @@ DifficultySetting{
 
 @PART[BioMass_Red_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   -RESOURCE[Light]{}
   -RESOURCE[BioMass]{}
   -RESOURCE[Oxygen]{}

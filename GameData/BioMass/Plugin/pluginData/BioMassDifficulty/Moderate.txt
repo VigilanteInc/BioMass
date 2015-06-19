@@ -2585,6 +2585,12 @@ DifficultySetting{
   -RESOURCE[Waste]{}
   RESOURCE
   {
+    name = Light
+    amount = 0.0
+    maxAmount = 1.0 //L
+  }
+  RESOURCE
+  {
     name = Oxygen
     amount = 0.0
     maxAmount = 101.120425 //L
@@ -2637,6 +2643,12 @@ DifficultySetting{
   -RESOURCE[Waste]{}
   RESOURCE
   {
+    name = Light
+    amount = 0.0
+    maxAmount = 1.0 //L
+  }
+  RESOURCE
+  {
     name = Oxygen
     amount = 0.0
     maxAmount = 101.120425 //L
@@ -2687,6 +2699,12 @@ DifficultySetting{
   -RESOURCE[Nutrients]{}
   -RESOURCE[Water]{}
   -RESOURCE[Waste]{}
+  RESOURCE
+  {
+    name = Light
+    amount = 0.0
+    maxAmount = 1.0 //L
+  }
   RESOURCE
   {
     name = Oxygen

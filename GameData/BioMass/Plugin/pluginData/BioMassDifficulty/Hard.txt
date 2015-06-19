@@ -193,6 +193,8 @@ DifficultySetting{
 }
 
 @PART[BioMass_Red_Greenhouse]{
+   @node_stack_top = 0.0, 1.65, 0.0, 0.0, 1.0, 0.0, 1
+   @node_stack_bottom = 0.0, -1.59, 0.0, 0.0, -1.0, 0.0, 1
    @category=Utility
    @title=Greenhouse: Experimental, mk. 2
    @description=In a joint project, Kerbal Space Command and DG Aero-Space designed small, modular greenhouses to test whether a rose would smell as sweet in space. While initially designed as an experiment package and giving insights into rates of germinations, photosynthesis and respiration, it was hoped the plant greenhouse would be of practical use to manned missions.
@@ -2620,6 +2622,12 @@ DifficultySetting{
   -RESOURCE[Waste]{}
   RESOURCE
   {
+    name = Light
+    amount = 0.0
+    maxAmount = 1.0 //L
+  }
+  RESOURCE
+  {
     name = Oxygen
     amount = 0.0
     maxAmount = 101.120425 //L
@@ -2670,6 +2678,12 @@ DifficultySetting{
   -RESOURCE[Nutrients]{}
   -RESOURCE[Water]{}
   -RESOURCE[Waste]{}
+  RESOURCE
+  {
+    name = Light
+    amount = 0.0
+    maxAmount = 1.0 //L
+  }
   RESOURCE
   {
     name = Oxygen
@@ -2724,6 +2738,12 @@ DifficultySetting{
   -RESOURCE[Waste]{}
   RESOURCE
   {
+    name = Light
+    amount = 0.0
+    maxAmount = 1.0 //L
+  }
+  RESOURCE
+  {
     name = Oxygen
     amount = 0.0
     maxAmount = 101.120425 //L
@@ -2774,6 +2794,12 @@ DifficultySetting{
   -RESOURCE[Nutrients]{}
   -RESOURCE[Water]{}
   -RESOURCE[Waste]{}
+  RESOURCE
+  {
+    name = Light
+    amount = 0.0
+    maxAmount = 1.0 //L
+  }
   RESOURCE
   {
     name = Oxygen
