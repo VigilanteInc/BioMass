@@ -331,15 +331,16 @@ DifficultySetting{
 //****BIOREACTOR**********
 @PART[BioMass_BioReactor]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[bioReactorOne]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[bioReactorTwo]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[bioReactorOne]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[bioReactorTwo]] {}
   MODULE
     {
-        name = ModuleResourceConverter
+        name = AnimatedGenerator
         tag = bioReactorOne //for moduleManager
-        ConverterName = KH4+O2 Rxn
-        StartActionName = Start Reactor
-        StopActionName = Stop Reactor
+        ConverterName = BioCake+KH4 Rxn
+        AnimationName = exhaustPort
+        StartActionName = Start BioCake+KH4 Rxn
+        StopActionName = Stop BioCake+KH4 Rxn
         AutoShutdown = false
         FillAmount = 1.0
         AlwaysActive = false
@@ -357,58 +358,72 @@ DifficultySetting{
         INPUT_RESOURCE
         {
             ResourceName = BioCake
-            Ratio = 0.0000090
+            Ratio = 0.0000739
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        //INPUT_RESOURCE
+        //{
+        //    ResourceName = Oxygen
+        //    Ratio = 0.0013285
+        //    FlowMode = STAGE_PRIORITY_FLOW
+        //}
+        INPUT_RESOURCE
+        {
+            ResourceName = KethaneGas
+            Ratio = 0.0048266
+            DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         INPUT_RESOURCE
         {
-            ResourceName = Oxygen
-            Ratio = 0.0013285
+            ResourceName = Water
+            Ratio = 9.0
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
-            ResourceName = KethaneGas
-            Ratio = 0.0005905
+            ResourceName = Water
+            Ratio = 9.0
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
             ResourceName = LiquidFuel
-            Ratio = 0.0000013
+            Ratio = 0.0000110
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
             ResourceName = Hydrogen
-            Ratio = 0.0044284
+            Ratio = 0.0361994
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
             ResourceName = Oxygen
-            Ratio = 0.0039856
+            Ratio = 0.0217196
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
             ResourceName = CarbonDioxide
-            Ratio = 0.0026570
+            Ratio = 0.0217196
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
     }
     MODULE
     {
-        name = ModuleResourceConverter
+        name = AnimatedGenerator
         tag = bioReactorTwo //for moduleManager
-        ConverterName = H2 Rxn
-        StartActionName = Start Reactor
-        StopActionName = Stop Reactor
+        ConverterName = BioCake+H2 Rxn
+        AnimationName = exhaustPort
+        StartActionName = Start BioCake+H2 Rxn
+        StopActionName = Stop BioCake+H2 Rxn
         AutoShutdown = false
         FillAmount = 1.0
         AlwaysActive = false
@@ -426,13 +441,13 @@ DifficultySetting{
         INPUT_RESOURCE
         {
             ResourceName = BioCake
-            Ratio = 0.0000090
+            Ratio = 0.0000739
             FlowMode = STAGE_PRIORITY_FLOW
         }
         INPUT_RESOURCE
         {
             ResourceName = Hydrogen
-            Ratio = 0.0008857
+            Ratio = 0.0072399
             FlowMode = STAGE_PRIORITY_FLOW
         }
         INPUT_RESOURCE
@@ -444,14 +459,14 @@ DifficultySetting{
         OUTPUT_RESOURCE
         {
             ResourceName = LiquidFuel
-            Ratio = 0.0000013
+            Ratio = 0.0000110
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
             ResourceName = Oxygen
-            Ratio = 0.0053141
+            Ratio = 0.0434393
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
@@ -1133,8 +1148,8 @@ DifficultySetting{
     name = BiologicalProcess
     tag = Germination//for moduleManager
     ConverterName = Germination
-    StartActionName = Start Germination
-    StopActionName = Stop Germination
+    StartActionName = IR Lights On
+    StopActionName = IR Lights Off
     AutoShutdown = false
     FillAmount = 1.0
     AlwaysActive = false

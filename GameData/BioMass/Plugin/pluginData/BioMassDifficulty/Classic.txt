@@ -189,13 +189,14 @@ DifficultySetting{
 //**********BIOREACTOR
 @PART[BioMass_BioReactor]
 {
-  	-MODULE[ModuleResourceConverter]:HAS[#tag[bioReactorOne]] {}
-  	-MODULE[ModuleResourceConverter]:HAS[#tag[bioReactorTwo]] {}
+    -MODULE[AnimatedGenerator]:HAS[#tag[bioReactorOne]] {}
+    -MODULE[AnimatedGenerator]:HAS[#tag[bioReactorTwo]] {}
   	MODULE
     {
-        name = ModuleResourceConverter
+        name = AnimatedGenerator
         tag = bioReactorOne //for moduleManager
         ConverterName = BioMass Reactor
+        AnimationName = exhaustPort
         StartActionName = Start Reactor
         StopActionName = Stop Reactor
         AutoShutdown = false
