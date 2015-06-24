@@ -267,13 +267,13 @@ DifficultySetting{
       INPUT_RESOURCE
       {
           ResourceName = Hydrogen
-          Ratio = 9.8765432
+          Ratio = 0.98765432
           FlowMode = STAGE_PRIORITY_FLOW
       }
       OUTPUT_RESOURCE
       {
           ResourceName = MonoPropellant
-          Ratio = 0.0010000
+          Ratio = 0.00010000
           DumpExcess = false
           FlowMode = STAGE_PRIORITY_FLOW
        }
@@ -313,6 +313,219 @@ DifficultySetting{
       }
     }
 }
+@PART[BioMass_WhiteGasRegulator]
+{
+MODULE
+    {
+        name = ModuleResourceConverter
+        tag = CompO2 //for moduleManager
+        ConverterName = Oxygen Compression
+        StartActionName = Start Compression
+        StopActionName = Stop Compression
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 4.0
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = Oxygen
+            Ratio = 0.7777778
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = Oxidizer
+            Ratio = 0.0010
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+    }
+    MODULE
+    {
+        name = ModuleResourceConverter
+        tag = ReleaseO2 //for moduleManager
+        ConverterName = Oxygen Release Valve
+        StartActionName = Open Valve
+        StopActionName = Close Valve
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 0.1
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = Oxidizer
+            Ratio = 0.010
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = Oxygen
+            Ratio = 7.777778
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+         }
+    }
+}
+@PART[BioMass_GreyGasRegulator]
+{
+MODULE
+    {
+        name = ModuleResourceConverter
+        tag = CompCO2 //for moduleManager
+        ConverterName = CO2 Compression
+        StartActionName = Start Compression
+        StopActionName = Stop Compression
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 4.0
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = CarbonDioxide
+            Ratio = 0.392
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = LiquidCO2
+            Ratio = 0.0010
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+    }
+    MODULE
+    {
+        name = ModuleResourceConverter
+        tag = ReleaseCO2 //for moduleManager
+        ConverterName = CO2 Release Valve
+        StartActionName = Open Valve
+        StopActionName = Close Valve
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 0.1
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = LiquidCO2
+            Ratio = 0.010
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = CarbonDioxide
+            Ratio = 3.92
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+         }
+    }
+}
+@PART[BioMass_GreenGasRegulator]
+{
+MODULE
+    {
+        name = ModuleResourceConverter
+        tag = CompKH4 //for moduleManager
+        ConverterName = Kethane Compression
+        StartActionName = Start Compression
+        StopActionName = Stop Compression
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 4.0
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = KethaneGas
+            Ratio = 0.6209803
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = Kethane
+            Ratio = 0.001
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+    }
+    MODULE
+    {
+        name = ModuleResourceConverter
+        tag = ReleaseKH4 //for moduleManager
+        ConverterName = Kethane Release Valve
+        StartActionName = Open Valve
+        StopActionName = Close Valve
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 0.1
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = Kethane
+            Ratio = 0.010
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = KethaneGas
+            Ratio = 6.209803
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+         }
+    }
+}
 //****SUPPLY TANKS********
 @PART[CO2RadialLong]
 {
@@ -341,7 +554,7 @@ DifficultySetting{
     {
         name = ModuleResourceConverter
         tag = bioReactorOne //for moduleManager
-        ConverterName = KH4+O2 Rxn
+        ConverterName = BioCake + KH4 Rxn
         StartActionName = Start Reactor
         StopActionName = Stop Reactor
         AutoShutdown = false
@@ -361,47 +574,54 @@ DifficultySetting{
         INPUT_RESOURCE
         {
             ResourceName = BioCake
-            Ratio = 0.0000090
+            Ratio = 0.0000739
             FlowMode = STAGE_PRIORITY_FLOW
         }
         INPUT_RESOURCE
         {
-            ResourceName = Oxygen
-            Ratio = 0.0013285
+            ResourceName = Water
+            Ratio = 9.0
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = Water
+            Ratio = 9.0
+            DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
             ResourceName = KethaneGas
-            Ratio = 0.0005905
+            Ratio = 0.0048266
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
             ResourceName = LiquidFuel
-            Ratio = 0.0000013
+            Ratio = 0.0000110
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
             ResourceName = Hydrogen
-            Ratio = 0.0044284
+            Ratio = 0.0361994
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
             ResourceName = Oxygen
-            Ratio = 0.0039856
+            Ratio = 0.0217196
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
             ResourceName = CarbonDioxide
-            Ratio = 0.0026570
+            Ratio = 0.0217196
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
@@ -410,7 +630,7 @@ DifficultySetting{
     {
         name = ModuleResourceConverter
         tag = bioReactorTwo //for moduleManager
-        ConverterName = H2 Rxn
+        ConverterName = BioCake + H2 Rxn
         StartActionName = Start Reactor
         StopActionName = Stop Reactor
         AutoShutdown = false
@@ -430,13 +650,13 @@ DifficultySetting{
         INPUT_RESOURCE
         {
             ResourceName = BioCake
-            Ratio = 0.0000090
+            Ratio = 0.0000739
             FlowMode = STAGE_PRIORITY_FLOW
         }
         INPUT_RESOURCE
         {
             ResourceName = Hydrogen
-            Ratio = 0.0008857
+            Ratio = 0.0072399
             FlowMode = STAGE_PRIORITY_FLOW
         }
         INPUT_RESOURCE
@@ -447,22 +667,22 @@ DifficultySetting{
         }
         OUTPUT_RESOURCE
         {
+            ResourceName = Water
+            Ratio = 9.0
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
             ResourceName = LiquidFuel
-            Ratio = 0.0000013
+            Ratio = 0.0000110
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         OUTPUT_RESOURCE
         {
             ResourceName = Oxygen
-            Ratio = 0.0053141
-            DumpExcess = false
-            FlowMode = STAGE_PRIORITY_FLOW
-        }
-        OUTPUT_RESOURCE
-        {
-            ResourceName = Water
-            Ratio = 9.0
+            Ratio = 0.0434393
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
