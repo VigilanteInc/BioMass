@@ -315,6 +315,8 @@ DifficultySetting{
 }
 @PART[BioMass_WhiteGasRegulator]
 {
+-MODULE[ModuleResourceConverter]:HAS[#tag[CompO2]] {}
+-MODULE[ModuleResourceConverter]:HAS[#tag[ReleaseO2]] {}
 MODULE
     {
         name = ModuleResourceConverter
@@ -386,6 +388,8 @@ MODULE
 }
 @PART[BioMass_GreyGasRegulator]
 {
+-MODULE[ModuleResourceConverter]:HAS[#tag[CompCO2]] {}
+-MODULE[ModuleResourceConverter]:HAS[#tag[ReleaseCO2]] {}
 MODULE
     {
         name = ModuleResourceConverter
@@ -457,6 +461,8 @@ MODULE
 }
 @PART[BioMass_GreenGasRegulator]
 {
+-MODULE[ModuleResourceConverter]:HAS[#tag[CompKH4]] {}
+-MODULE[ModuleResourceConverter]:HAS[#tag[ReleaseKH4]] {}
 MODULE
     {
         name = ModuleResourceConverter
@@ -548,15 +554,16 @@ MODULE
 //****BIOREACTOR**********
 @PART[BioMass_BioReactor]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[bioReactorOne]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[bioReactorTwo]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[bioReactorOne]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[bioReactorTwo]] {}
   MODULE
     {
-        name = ModuleResourceConverter
+        name = AnimatedGenerator
         tag = bioReactorOne //for moduleManager
         ConverterName = BioCake + KH4 Rxn
-        StartActionName = Start Reactor
-        StopActionName = Stop Reactor
+        StartActionName = Start BioCake+KH4 Rxn
+        StopActionName = Stop BioCake+KH4 Rxn
+        AnimationName = exhaustPort
         AutoShutdown = false
         FillAmount = 1.0
         AlwaysActive = false
@@ -579,21 +586,20 @@ MODULE
         }
         INPUT_RESOURCE
         {
-            ResourceName = Water
-            Ratio = 9.0
-            FlowMode = STAGE_PRIORITY_FLOW
-        }
-        OUTPUT_RESOURCE
-        {
-            ResourceName = Water
-            Ratio = 9.0
-            DumpExcess = false
-            FlowMode = STAGE_PRIORITY_FLOW
-        }
-        OUTPUT_RESOURCE
-        {
             ResourceName = KethaneGas
             Ratio = 0.0048266
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = Water
+            Ratio = 9.0
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = Water
+            Ratio = 9.0
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
@@ -628,11 +634,12 @@ MODULE
     }
     MODULE
     {
-        name = ModuleResourceConverter
+        name = AnimatedGenerator
         tag = bioReactorTwo //for moduleManager
         ConverterName = BioCake + H2 Rxn
-        StartActionName = Start Reactor
-        StopActionName = Stop Reactor
+        StartActionName = Start BioCake+H2 Rxn
+        StopActionName = Stop BioCake+H2 Rxn
+        AnimationName = exhaustPort
         AutoShutdown = false
         FillAmount = 1.0
         AlwaysActive = false
@@ -697,12 +704,12 @@ MODULE
   MODULE{
      name = BiologicalProcess
      tag = BiomassBreakdown//for moduleManager
-     ConverterName = Biomass Breakdown
+     ConverterName = Biomass Bkd
      StartActionName = Start Biomass Breakdown
      StopActionName = Stop Biomass Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -710,7 +717,7 @@ MODULE
      Specialty = Biologist
      EfficiencyBonus = 1
      INPUT_RESOURCE{
-        ResourceName = Biomass
+        ResourceName = BioMass
         Ratio = 0.0000087
         FlowMode = STAGE_PRIORITY_FLOW
      }
@@ -730,12 +737,12 @@ MODULE
   MODULE{
      name = BiologicalProcess
      tag = BiocakeBreakdown//for moduleManager
-     ConverterName = Biocake Breakdown
+     ConverterName = Biocake Bkd
      StartActionName = Start Biocake Breakdown
      StopActionName = Stop Biocake Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -743,7 +750,7 @@ MODULE
      Specialty = Biologist
      EfficiencyBonus = 1
      INPUT_RESOURCE{
-        ResourceName = Biocake
+        ResourceName = BioCake
         Ratio = 0.0000211285714285714
         FlowMode = STAGE_PRIORITY_FLOW
      }
@@ -763,12 +770,12 @@ MODULE
   MODULE{
      name = BiologicalProcess
      tag = SeedBreakdown//for moduleManager
-     ConverterName = Seed Breakdown
+     ConverterName = Seed Bkd
      StartActionName = Start Seed Breakdown
      StopActionName = Stop Seed Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -796,12 +803,12 @@ MODULE
   MODULE{
      name = BiologicalProcess
      tag = FoodBreakdown//for moduleManager
-     ConverterName = Food Breakdown
+     ConverterName = Food Bkd
      StartActionName = Start Food Breakdown
      StopActionName = Stop Food Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -829,12 +836,12 @@ MODULE
   MODULE{
      name = BiologicalProcess
      tag = LiquidFuelBreakdown//for moduleManager
-     ConverterName = LiquidFuel Breakdown
+     ConverterName = LiquidFuel Bkd
      StartActionName = Start LiquidFuel Breakdown
      StopActionName = Stop LiquidFuel Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -873,12 +880,12 @@ MODULE
   MODULE{
      name = BiologicalProcess
      tag = WasteBreakdown//for moduleManager
-     ConverterName = Waste Breakdown
+     ConverterName = Waste Bkd
      StartActionName = Start Waste Breakdown
      StopActionName = Stop Waste Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -906,12 +913,12 @@ MODULE
   MODULE{
      name = BiologicalProcess
      tag = MethaneProduction//for moduleManager
-     ConverterName = Methane Production
+     ConverterName = Methane Rxn
      StartActionName = Start Methane Production
      StopActionName = Stop Methane Production
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -944,12 +951,12 @@ MODULE
   MODULE{
      name = BiologicalProcess
      tag = MethaneBreakdown1//for moduleManager
-     ConverterName = Methane Breakdown 1
+     ConverterName = Methane Bkd
      StartActionName = Start Methane Breakdown 1
      StopActionName = Stop Methane Breakdown 1
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -983,8 +990,8 @@ MODULE
      name = ModuleResourceConverter
      tag = WaterValve//for moduleManager
      ConverterName = Water Valve
-     StartActionName = Start Water Valve
-     StopActionName = Stop Water Valve
+     StartActionName = Open Water Valve
+     StopActionName = Close Water Valve
      AutoShutdown = false
      FillAmount = 1.0
      AlwaysActive = false
