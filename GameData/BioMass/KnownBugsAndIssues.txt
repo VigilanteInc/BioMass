@@ -3,3 +3,5 @@ Known bugs/issues
 *To select "classic" must first click on another difficulty level button, and then click on "classic"
 *It would be nice to be able to reload the database without the moduleManager reload window
 *Returning to the difficulty menu from any building, the difficulty button is not depressed
+*Activating a button on the BioReactor activates the animation, but activating another button on it makes the animation go again. Same for shutting off one, and then shutting off another.
+*There’s no way to hide the status info of always active modules
