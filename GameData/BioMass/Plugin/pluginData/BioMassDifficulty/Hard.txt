@@ -2659,6 +2659,12 @@ MODULE
 
 
 //**********START RESOURCES****************************************************************************
+@PART[CO2RadialLong]{
+  -RESOURCE[CarbonDioxide][]
+}
+@PART[radialCO2Tank]{
+  -RESOURCE[CarbonDioxide][]
+}
 @PART[BioMass_BioReactor]
 {
   -RESOURCE[BioMass]{}
