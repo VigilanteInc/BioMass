@@ -3,6 +3,10 @@ DifficultySetting{
 }
 
 //**********categories, visibility, descriptions, mass, rescale, tech required*********************
+@PART[BioMass_GasBleedValve]{
+   @category=Utility
+   @TechRequired=electrics
+}
 @PART[BioMass_RedGasRegulator]{
    @category=Utility
    @title=Gas Compressor: Hydrogen 
@@ -242,6 +246,7 @@ DifficultySetting{
 
 //**********START MODULES******************************************************************************
 //*****GAS REGULATORS*****
+
 @PART[BioMass_RedGasRegulator]
 {
   -MODULE[ModuleResourceConverter]:HAS[#tag[makeMonoPropellant]] {}
