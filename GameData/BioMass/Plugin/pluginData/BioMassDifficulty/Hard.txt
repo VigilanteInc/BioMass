@@ -287,7 +287,7 @@ DifficultySetting{
     {
       name = ModuleResourceConverter
       tag = ReleaseH2 //for moduleManager
-      ConverterName = Hydrogen Release Valve
+      ConverterName = H2 Release
       StartActionName = Open Valve
       StopActionName = Close Valve
       AutoShutdown = false
@@ -316,6 +316,11 @@ DifficultySetting{
           DumpExcess = false
           FlowMode = STAGE_PRIORITY_FLOW
       }
+    }
+    RESOURCE{
+      name = Hydrogen
+      amount = 0
+      maxAmount = 1
     }
 }
 @PART[BioMass_WhiteGasRegulator]
@@ -360,7 +365,7 @@ MODULE
     {
         name = ModuleResourceConverter
         tag = ReleaseO2 //for moduleManager
-        ConverterName = Oxygen Release Valve
+        ConverterName = Oxygen Release
         StartActionName = Open Valve
         StopActionName = Close Valve
         AutoShutdown = false
@@ -389,6 +394,11 @@ MODULE
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
          }
+    }
+    RESOURCE{
+      name = Oxygen
+      amount = 0
+      maxAmount = 1
     }
 }
 @PART[BioMass_GreyGasRegulator]
@@ -433,7 +443,7 @@ MODULE
     {
         name = ModuleResourceConverter
         tag = ReleaseCO2 //for moduleManager
-        ConverterName = CO2 Release Valve
+        ConverterName = CO2 Release
         StartActionName = Open Valve
         StopActionName = Close Valve
         AutoShutdown = false
@@ -462,6 +472,11 @@ MODULE
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
          }
+    }
+    RESOURCE{
+      name = CarbonDioxide
+      amount = 0
+      maxAmount = 1
     }
 }
 @PART[BioMass_GreenGasRegulator]
@@ -506,7 +521,7 @@ MODULE
     {
         name = ModuleResourceConverter
         tag = ReleaseKH4 //for moduleManager
-        ConverterName = Kethane Release Valve
+        ConverterName = Kethane Release
         StartActionName = Open Valve
         StopActionName = Close Valve
         AutoShutdown = false
@@ -535,6 +550,11 @@ MODULE
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
          }
+    }
+    RESOURCE{
+      name = KethaneGas
+      amount = 0
+      maxAmount = 1
     }
 }
 //****SUPPLY TANKS********
