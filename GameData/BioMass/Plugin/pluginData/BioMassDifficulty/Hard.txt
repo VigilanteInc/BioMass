@@ -108,13 +108,25 @@ DifficultySetting{
 
 
 @PART[OTankRound]{
-   @category=-1
-   @TechRequired=-1
+   @category=Utility
+   @title=Supply Tank: O2, Round
+   @description=This roundified tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
+   @rescaleFactor=1
+   @TechRequired=bioSystems
+   @cost=450
+   @manufacturer=Stodola, LLC.
+   @mass=0.075
 }
 
 @PART[OTankLong]{
-   @category=-1
-   @TechRequired=-1
+   @category=Utility
+   @title=Supply Tank: O2, Long
+   @description=This tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
+   @rescaleFactor=0.5
+   @TechRequired=bioSystems
+   @cost=800
+   @manufacturer=Stodola, LLC.
+   @mass=0.15
 }
 
 @PART[radialCO2Tank]{
@@ -558,6 +570,24 @@ MODULE
     }
 }
 //****SUPPLY TANKS********
+@PART[OTankLong]
+{
+  -RESOURCE[Oxygen]{}
+  RESOURCE{
+    name = Oxidizer
+    amount = 40
+    maxAmount = 80
+  }
+}
+@PART[OTankRound]
+{
+  -RESOURCE[Oxygen]{}
+  RESOURCE{
+    name = Oxidizer
+    amount = 20
+    maxAmount = 40
+  }
+}
 @PART[CO2RadialLong]
 {
   -RESOURCE[CarbonDioxide]{}
