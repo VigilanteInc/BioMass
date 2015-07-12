@@ -950,12 +950,12 @@ DifficultySetting{
     id = bioSciences
     title = Biosciences
     description = Bioscience is the quest for The Answer To Life... It stops short of The Universe and Everything, however.
-    cost = 68
+    cost = 45
     hideEmpty = False
     nodeName = node3_biology
     anyToUnlock = False
     icon = BioMassBiology
-    pos = -1982,611.1,-1
+    pos = -1946,470,-1
     scale = 0.6
     Parent
     {
@@ -969,12 +969,12 @@ DifficultySetting{
     id = bioSystems
     title = Biosystems Engineering
     description = The Study of biological systems and how to engineer them.
-    cost = 68
+    cost = 90
     hideEmpty = False
     nodeName = node3_bioSystems
     anyToUnlock = False
     icon = BioMassBioSystems
-    pos = -1723,611.1,-1
+    pos = -1723,500,-1
     scale = 0.6
     Parent
     {
@@ -994,12 +994,12 @@ DifficultySetting{
     id = sustainability
     title = Sustainability
     description = The Study keeping things alive in a closed system.
-    cost = 68
+    cost = 90
     hideEmpty = False
     nodeName = node3_sustainability
     anyToUnlock = False
     icon = BioMassSustainability
-    pos = -1723,511.1,-1
+    pos = -1723,440,-1
     scale = 0.6
     Parent
     {
@@ -1013,12 +1013,12 @@ DifficultySetting{
     id = spaceAg
     title = Space Agriculture
     description = The production of food in space!
-    cost = 120
+    cost = 160
     hideEmpty = False
     nodeName = node8_spaceAg
     anyToUnlock = False
     icon = BioMassClosedSystem
-    pos = -1519,611.1,-1    
+    pos = -1520,500,-1
     scale = 0.6
     Parent
     {
@@ -1032,12 +1032,12 @@ DifficultySetting{
     id = bioFuels
     title = Renewable BioFuels
     description = The production of biofuel!
-    cost = 1100
+    cost = 160
     hideEmpty = False
     nodeName = node5_longTermSustainability
     anyToUnlock = False
     icon = BioMassRenewables
-    pos = -1519,511.1,-1
+    pos = -1520,440,-1
     scale = 0.6    
     Parent
     {
@@ -1051,12 +1051,12 @@ DifficultySetting{
     id = astroBiology
     title = Astrobiology
     description = Astrobiology is the quest for The Answer To Life...IN SPACE!! Still nothing about The Universe and Everything.
-    cost = 1100
+    cost = 300
     hideEmpty = False
     nodeName = node5_astroBiology
     anyToUnlock = False
     icon = BioMassAstrobiology
-    pos = -1309,611.1,-1
+    pos = -1309,470,-1
     scale = 0.6
     Parent
     {
