@@ -1,0 +1,176 @@
+RESOURCE_DEFINITION
+{
+	name = Hydrogen
+	density = 0.00000008990 //Real-world
+	density = 0.00000040455 //kerbal value
+	unitCost = 0.000055836
+	flowMode = ALL_VESSEL
+	transfer = PUMP
+	isTweakable = true
+	//ksparpicon comes with ARP
+	//ksparpicon = 
+}
+RESOURCE_DEFINITION
+{
+    name = Helium
+    density = 0.0000001786 //Real-world
+    density = 0.0000008037 //kerbal value
+    unitCost = 0.0000091
+    flowMode = STACK_PRIORITY_SEARCH
+    transfer = PUMP
+    isTweakable = True
+    //ksparpicon comes with ARP
+	//ksparpicon = 
+}
+RESOURCE_DEFINITION
+{
+    name = Nitrogen
+    density = 0.000001251 //Real-world
+    density = 0.0000056295 //kerbal value
+    unitCost = 0.00005
+    flowMode = STACK_PRIORITY_SEARCH
+    transfer = PUMP
+    isTweakable = True
+    ksparpicon = RealFuels/Resources/ARPIcons/Nitrogen
+}
+RESOURCE_DEFINITION
+{
+	name = Oxygen
+	density = 0.00000141 //Real-world
+	density = 0.000006345 //kerbal value
+	flowMode = ALL_VESSEL
+	transfer = PUMP
+	isTweakable = true
+	unitCost = 0.000055836
+	color = 0,1,0	
+	ksparpicon = 
+}
+RESOURCE_DEFINITION
+{
+	name = CarbonDioxide
+	density = 0.000001951 //Real-world
+	density = 0.0000087795 //kerbal value
+	flowMode = ALL_VESSEL
+	transfer = PUMP
+	isTweakable = true
+	unitCost = 0.0000028637
+	ksparpicon = 
+}
+RESOURCE_DEFINITION
+{
+   name = NeonGas
+   density = 0.0000009002 //Real-world
+   density = 0.0000040509 //kerbal value
+   flowMode = STAGE_PRIORITY_FLOW
+   transfer = PUMP
+   isTweakable = true
+   unitCost = 0.0016
+   ksparpicon = 
+}
+RESOURCE_DEFINITION
+{
+   name = KethaneGas //BioMass assumes "Kethane" is methane (CH4). From the Kethane mod.
+   density = 0.00000071571 //Real-world
+   density = 0.00000322 //kerbal value
+   unitCost = 
+   flowMode = ALL_VESSEL
+   transfer = PUMP
+   isTweakable = true
+   unitCost = 0
+   ksparpicon = BioMass/Textures/Kethane
+}
+RESOURCE_DEFINITION
+{
+	name = ArgonGas // Common electric engine propellant
+	density = 0.00000178400 //Real-world
+	density = 0.000008028 //kerbal value
+	unitCost = 0.0105
+	flowMode = STAGE_PRIORITY_FLOW
+	transfer = PUMP
+	isTweakable = true
+	color = 1,0,0
+	ksparpicon = 
+}
+RESOURCE_DEFINITION
+{
+	name = KryptonGas
+	density = 0.000003749 //Real-world
+	density = 0.0000168705 //kerbal value
+	flowMode = STAGE_PRIORITY_FLOW
+	transfer = PUMP
+	isTweakable = true
+	unitCost = 0.0068
+	ksparpicon = 
+}
+
+RESOURCE_DEFINITION
+{
+	//from TAC-Life support
+	name = Waste
+	density = 0.00075 //Real-world
+	density = 0.003375 //kerbal value
+	flowMode = ALL_VESSEL
+	transfer = PUMP
+	isTweakable = true
+	unitCost = 0
+	ksparpicon = 
+}
+RESOURCE_DEFINITION
+{
+	name = WasteWater
+	density = 0.001005 //Real-world 
+	density = 0.0045225 //kerbal value
+	flowMode = ALL_VESSEL
+	transfer = PUMP
+	isTweakable = true
+	unitCost = 0
+	ksparpicon = 
+}
+
+RESOURCE_DEFINITION
+{
+	name = Water
+	density = 0.0010000000 //Real-world
+	density = 0.0045 //kerbal value
+	flowMode = ALL_VESSEL
+	transfer = PUMP
+	isTweakable = true
+	unitCost = 0.0008
+	color = .5,.5,1
+	ksparpicon = 
+}
+
+RESOURCE_DEFINITION
+{
+	name = IntakeAtm
+	density = 0.005 //kerbal value 
+	flowMode = ALL_VESSEL
+	transfer = PUMP
+	isTweakable = false
+	unitCost = 0
+	ksparpicon = 
+}
+
+RESOURCE_DEFINITION
+{
+	name = LqdCO2
+	density = 0.00117325 //Real-world
+	density =  //kerbal value		
+	unitCost = 0.0017247		
+	flowMode = ALL_VESSEL
+	transfer = PUMP
+	isTweakable = true
+	ksparpicon = 
+}
+RESOURCE_DEFINITION
+{
+   name = Kethane //BioMass assumes "Kethane" is methane (CH4). From the Kethane mod.
+   density = 0.00042236 //Real-world
+   density = 0.002 //kerbal value
+   unitCost = 
+   flowMode = ALL_VESSEL
+   transfer = PUMP
+   isTweakable = true
+   unitCost = 0
+   ksparpicon = BioMass/Textures/Kethane
+}
