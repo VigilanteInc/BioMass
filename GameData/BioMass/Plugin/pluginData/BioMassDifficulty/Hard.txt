@@ -3150,6 +3150,16 @@ MODULE
   @category = Utility
   @TechRequired=electrics
 }
+@PART[BioMass_CryogenicAtmosphericSeperator-R]
+{
+  @category = Utility
+  @TechRequired=electrics
+}
+@PART[BioMass_CryogenicAtmosphericSeperator-L]
+{
+  @category = Utility
+  @TechRequired=electrics
+}
 
 //**********For BioMass Tech Tree**********************************************************************
 @TechTree:FOR[BioMass]
