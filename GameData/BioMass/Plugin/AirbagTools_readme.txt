@@ -1,0 +1,1 @@
+The AirBagTools.dll was originally created by “RoverDude” for use with the Kerbal Space Program mod “Survival Pack” (https://github.com/BobPalmer/SrvPack). CC4 License
