@@ -940,7 +940,14 @@ DifficultySetting{
 {
   @category = -1
 }
-
+@PART[CryogenicAtmosphericSeperator-L]
+{
+  @category = -1
+}
+@PART[CryogenicAtmosphericSeperator-R]
+{
+  @category = -1
+}
 
 //**********For BioMass Tech Tree*********************
 @TechTree:FOR[BioMass]

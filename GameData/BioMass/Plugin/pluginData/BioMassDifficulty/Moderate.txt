@@ -3,6 +3,21 @@ DifficultySetting{
 }
 
 //**********categories, visibility, descriptions, mass, rescale, tech required*********************
+@PART[BioMass_Gas_Storage_01]{
+   @category=Utility
+}
+@PART[BioMass_Gas_Storage_02]{
+   @category=Utility
+}
+@PART[BioMass_Gas_Storage_03]{
+   @category=Utility
+}
+
+@PART[BioMass_GasBleedValve]{
+   @category=Utility
+   @TechRequired=electrics
+}
+
 @PART[BioMass_RedGasRegulator]{
    @category=Utility
    @title=Gas Compressor: Hydrogen 
@@ -104,13 +119,25 @@ DifficultySetting{
 
 
 @PART[OTankRound]{
-   @category=-1
-   @TechRequired=-1
+   @category=Utility
+   @title=Supply Tank: O2, Round
+   @description=This roundified tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
+   @rescaleFactor=1
+   @TechRequired=bioSystems
+   @cost=450
+   @manufacturer=Stodola, LLC.
+   @mass=0.075
 }
 
 @PART[OTankLong]{
-   @category=-1
-   @TechRequired=-1
+   @category=Utility
+   @title=Supply Tank: O2, Long
+   @description=This tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
+   @rescaleFactor=0.5
+   @TechRequired=bioSystems
+   @cost=800
+   @manufacturer=Stodola, LLC.
+   @mass=0.15
 }
 
 @PART[radialCO2Tank]{
@@ -180,6 +207,8 @@ DifficultySetting{
 }
 
 @PART[BioMass_Yellow_Greenhouse]{
+   @node_stack_top = 0.0, 1.65, 0.0, 0.0, 1.0, 0.0, 1
+   @node_stack_bottom = 0.0, -1.59, 0.0, 0.0, -1.0, 0.0, 1
    @category=Utility
    @title=Greenhouse: Experimental
    @description=How well would plants grow in space? Who knows! To try and find out the KSC authorized the construction of a simple greenhouse module. Good luck, astroplants!
@@ -191,6 +220,8 @@ DifficultySetting{
 }
 
 @PART[BioMass_Red_Greenhouse]{
+   @node_stack_top = 0.0, 1.65, 0.0, 0.0, 1.0, 0.0, 1
+   @node_stack_bottom = 0.0, -1.59, 0.0, 0.0, -1.0, 0.0, 1
    @category=Utility
    @title=Greenhouse: Experimental, mk. 2
    @description=In a joint project, Kerbal Space Command and DG Aero-Space designed small, modular greenhouses to test whether a rose would smell as sweet in space. While initially designed as an experiment package and giving insights into rates of germinations, photosynthesis and respiration, it was hoped the plant greenhouse would be of practical use to manned missions.
@@ -238,6 +269,7 @@ DifficultySetting{
 
 //**********START MODULES******************************************************************************
 //*****GAS REGULATORS*****
+
 @PART[BioMass_RedGasRegulator]
 {
   -MODULE[ModuleResourceConverter]:HAS[#tag[makeMonoPropellant]] {}
@@ -263,13 +295,13 @@ DifficultySetting{
       INPUT_RESOURCE
       {
           ResourceName = Hydrogen
-          Ratio = 9.8765432
+          Ratio = 0.98765432
           FlowMode = STAGE_PRIORITY_FLOW
       }
       OUTPUT_RESOURCE
       {
           ResourceName = MonoPropellant
-          Ratio = 0.0010000
+          Ratio = 0.00010000
           DumpExcess = false
           FlowMode = STAGE_PRIORITY_FLOW
        }
@@ -278,7 +310,7 @@ DifficultySetting{
     {
       name = ModuleResourceConverter
       tag = ReleaseH2 //for moduleManager
-      ConverterName = Hydrogen Release Valve
+      ConverterName = H2 Release
       StartActionName = Open Valve
       StopActionName = Close Valve
       AutoShutdown = false
@@ -308,13 +340,270 @@ DifficultySetting{
           FlowMode = STAGE_PRIORITY_FLOW
       }
     }
+    RESOURCE{
+      name = Hydrogen
+      amount = 0
+      maxAmount = 1
+    }
+}
+@PART[BioMass_WhiteGasRegulator]
+{
+-MODULE[ModuleResourceConverter]:HAS[#tag[CompO2]] {}
+-MODULE[ModuleResourceConverter]:HAS[#tag[ReleaseO2]] {}
+MODULE
+    {
+        name = ModuleResourceConverter
+        tag = CompO2 //for moduleManager
+        ConverterName = Oxygen Compression
+        StartActionName = Start Compression
+        StopActionName = Stop Compression
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 4.0
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = Oxygen
+            Ratio = 0.7777778
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = Oxidizer
+            Ratio = 0.0010
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+    }
+    MODULE
+    {
+        name = ModuleResourceConverter
+        tag = ReleaseO2 //for moduleManager
+        ConverterName = Oxygen Release
+        StartActionName = Open Valve
+        StopActionName = Close Valve
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 0.1
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = Oxidizer
+            Ratio = 0.010
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = Oxygen
+            Ratio = 7.777778
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+         }
+    }
+    RESOURCE{
+      name = Oxygen
+      amount = 0
+      maxAmount = 1
+    }
+}
+@PART[BioMass_GreyGasRegulator]
+{
+-MODULE[ModuleResourceConverter]:HAS[#tag[CompCO2]] {}
+-MODULE[ModuleResourceConverter]:HAS[#tag[ReleaseCO2]] {}
+MODULE
+    {
+        name = ModuleResourceConverter
+        tag = CompCO2 //for moduleManager
+        ConverterName = CO2 Compression
+        StartActionName = Start Compression
+        StopActionName = Stop Compression
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 4.0
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = CarbonDioxide
+            Ratio = 0.392
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = LqdCO2
+            Ratio = 0.0010
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+    }
+    MODULE
+    {
+        name = ModuleResourceConverter
+        tag = ReleaseCO2 //for moduleManager
+        ConverterName = CO2 Release
+        StartActionName = Open Valve
+        StopActionName = Close Valve
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 0.1
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = LqdCO2
+            Ratio = 0.010
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = CarbonDioxide
+            Ratio = 3.92
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+         }
+    }
+    RESOURCE{
+      name = CarbonDioxide
+      amount = 0
+      maxAmount = 1
+    }
+}
+@PART[BioMass_GreenGasRegulator]
+{
+-MODULE[ModuleResourceConverter]:HAS[#tag[CompKH4]] {}
+-MODULE[ModuleResourceConverter]:HAS[#tag[ReleaseKH4]] {}
+MODULE
+    {
+        name = ModuleResourceConverter
+        tag = CompKH4 //for moduleManager
+        ConverterName = Kethane Compression
+        StartActionName = Start Compression
+        StopActionName = Stop Compression
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 4.0
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = KethaneGas
+            Ratio = 0.6209803
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = Kethane
+            Ratio = 0.001
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+    }
+    MODULE
+    {
+        name = ModuleResourceConverter
+        tag = ReleaseKH4 //for moduleManager
+        ConverterName = Kethane Release
+        StartActionName = Open Valve
+        StopActionName = Close Valve
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 0.1
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = Kethane
+            Ratio = 0.010
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = KethaneGas
+            Ratio = 6.209803
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+         }
+    }
+    RESOURCE{
+      name = KethaneGas
+      amount = 0
+      maxAmount = 1
+    }
 }
 //****SUPPLY TANKS********
+@PART[OTankLong]
+{
+  -RESOURCE[Oxygen]{}
+  RESOURCE{
+    name = Oxidizer
+    amount = 40
+    maxAmount = 80
+  }
+}
+@PART[OTankRound]
+{
+  -RESOURCE[Oxygen]{}
+  RESOURCE{
+    name = Oxidizer
+    amount = 20
+    maxAmount = 40
+  }
+}
 @PART[CO2RadialLong]
 {
   -RESOURCE[CarbonDioxide]{}
   RESOURCE{
-    name = LiquidCO2
+    name = LqdCO2
     amount = 40
     maxAmount = 80
   }
@@ -323,7 +612,7 @@ DifficultySetting{
 {
   -RESOURCE[CarbonDioxide]{}
   RESOURCE{
-    name = LiquidCO2
+    name = LqdCO2
     amount = 20
     maxAmount = 40
   }
@@ -337,10 +626,10 @@ DifficultySetting{
     {
         name = AnimatedGenerator
         tag = bioReactorOne //for moduleManager
-        ConverterName = BioCake+KH4 Rxn
-        AnimationName = exhaustPort
+        ConverterName = BioCake + KH4 Rxn
         StartActionName = Start BioCake+KH4 Rxn
         StopActionName = Stop BioCake+KH4 Rxn
+        AnimationName = exhaustPort
         AutoShutdown = false
         FillAmount = 1.0
         AlwaysActive = false
@@ -361,17 +650,10 @@ DifficultySetting{
             Ratio = 0.0000739
             FlowMode = STAGE_PRIORITY_FLOW
         }
-        //INPUT_RESOURCE
-        //{
-        //    ResourceName = Oxygen
-        //    Ratio = 0.0013285
-        //    FlowMode = STAGE_PRIORITY_FLOW
-        //}
         INPUT_RESOURCE
         {
             ResourceName = KethaneGas
             Ratio = 0.0048266
-            DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
         INPUT_RESOURCE
@@ -420,10 +702,10 @@ DifficultySetting{
     {
         name = AnimatedGenerator
         tag = bioReactorTwo //for moduleManager
-        ConverterName = BioCake+H2 Rxn
-        AnimationName = exhaustPort
+        ConverterName = BioCake + H2 Rxn
         StartActionName = Start BioCake+H2 Rxn
         StopActionName = Stop BioCake+H2 Rxn
+        AnimationName = exhaustPort
         AutoShutdown = false
         FillAmount = 1.0
         AlwaysActive = false
@@ -458,6 +740,13 @@ DifficultySetting{
         }
         OUTPUT_RESOURCE
         {
+            ResourceName = Water
+            Ratio = 9.0
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
             ResourceName = LiquidFuel
             Ratio = 0.0000110
             DumpExcess = false
@@ -470,30 +759,23 @@ DifficultySetting{
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
         }
-        OUTPUT_RESOURCE
-        {
-            ResourceName = Water
-            Ratio = 9.0
-            DumpExcess = false
-            FlowMode = STAGE_PRIORITY_FLOW
-        }
     }
 }
 //****MICROBIOME**********
 @PART[BioMass_MicroBiome]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[WasteBreakdown]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[NutrientOutput]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[WaterValve]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[WasteBreakdown]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[NutrientOutput]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[WaterValve]] {}
   MODULE{
      name = BiologicalProcess
      tag = BiomassBreakdown//for moduleManager
-     ConverterName = Biomass Breakdown
+     ConverterName = Biomass Bkd
      StartActionName = Start Biomass Breakdown
      StopActionName = Stop Biomass Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -501,7 +783,7 @@ DifficultySetting{
      Specialty = Biologist
      EfficiencyBonus = 1
      INPUT_RESOURCE{
-        ResourceName = Biomass
+        ResourceName = BioMass
         Ratio = 0.0000087
         FlowMode = STAGE_PRIORITY_FLOW
      }
@@ -521,12 +803,12 @@ DifficultySetting{
   MODULE{
      name = BiologicalProcess
      tag = BiocakeBreakdown//for moduleManager
-     ConverterName = Biocake Breakdown
+     ConverterName = Biocake Bkd
      StartActionName = Start Biocake Breakdown
      StopActionName = Stop Biocake Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -534,7 +816,7 @@ DifficultySetting{
      Specialty = Biologist
      EfficiencyBonus = 1
      INPUT_RESOURCE{
-        ResourceName = Biocake
+        ResourceName = BioCake
         Ratio = 0.0000211285714285714
         FlowMode = STAGE_PRIORITY_FLOW
      }
@@ -554,12 +836,12 @@ DifficultySetting{
   MODULE{
      name = BiologicalProcess
      tag = SeedBreakdown//for moduleManager
-     ConverterName = Seed Breakdown
+     ConverterName = Seed Bkd
      StartActionName = Start Seed Breakdown
      StopActionName = Stop Seed Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -587,12 +869,12 @@ DifficultySetting{
   MODULE{
      name = BiologicalProcess
      tag = FoodBreakdown//for moduleManager
-     ConverterName = Food Breakdown
+     ConverterName = Food Bkd
      StartActionName = Start Food Breakdown
      StopActionName = Stop Food Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -620,12 +902,12 @@ DifficultySetting{
   MODULE{
      name = BiologicalProcess
      tag = LiquidFuelBreakdown//for moduleManager
-     ConverterName = LiquidFuel Breakdown
+     ConverterName = LiquidFuel Bkd
      StartActionName = Start LiquidFuel Breakdown
      StopActionName = Stop LiquidFuel Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -664,12 +946,12 @@ DifficultySetting{
   MODULE{
      name = BiologicalProcess
      tag = WasteBreakdown//for moduleManager
-     ConverterName = Waste Breakdown
+     ConverterName = Waste Bkd
      StartActionName = Start Waste Breakdown
      StopActionName = Stop Waste Breakdown
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -697,12 +979,12 @@ DifficultySetting{
   MODULE{
      name = BiologicalProcess
      tag = MethaneProduction//for moduleManager
-     ConverterName = Methane Production
+     ConverterName = Methane Rxn
      StartActionName = Start Methane Production
      StopActionName = Stop Methane Production
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -735,12 +1017,12 @@ DifficultySetting{
   MODULE{
      name = BiologicalProcess
      tag = MethaneBreakdown1//for moduleManager
-     ConverterName = Methane Breakdown 1
+     ConverterName = Methane Bkd
      StartActionName = Start Methane Breakdown 1
      StopActionName = Stop Methane Breakdown 1
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -774,8 +1056,8 @@ DifficultySetting{
      name = ModuleResourceConverter
      tag = WaterValve//for moduleManager
      ConverterName = Water Valve
-     StartActionName = Start Water Valve
-     StopActionName = Stop Water Valve
+     StartActionName = Open Water Valve
+     StopActionName = Close Water Valve
      AutoShutdown = false
      FillAmount = 1.0
      AlwaysActive = false
@@ -806,28 +1088,9 @@ DifficultySetting{
 //****Greenhouses*********
 @PART[BioMass_Yellow_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
-  //---open shutters to sunlight---//
-  MODULE{
-    name = GreenHouse
-    animationName = door
-    animSwitch = True
-    sunTracking = true
-    raycastTransformName = glass
-    pivotName =  glass
-    isBreakable = false
-    resourceName = Light
-    chargeRate = 1.0
-    powerCurve
-    {
-      key = 206000000000 0 0 0
-      key = 13599840256 1 0 0
-      key = 68773560320 0.5 0 0
-      key = 0 0 0 0
-    }
-  }
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   //---removes light so it can't be stored---//
   MODULE{
       name = ModuleGenerator
@@ -1081,9 +1344,9 @@ DifficultySetting{
 }
 @PART[BioMass_Blue_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   //---artificial lighting---//
   MODULE{
     name = AnimatedGenerator
@@ -1148,8 +1411,8 @@ DifficultySetting{
     name = BiologicalProcess
     tag = Germination//for moduleManager
     ConverterName = Germination
-    StartActionName = IR Lights On
-    StopActionName = IR Lights Off
+    StartActionName = Start Germination
+    StopActionName = Stop Germination
     AutoShutdown = false
     FillAmount = 1.0
     AlwaysActive = false
@@ -1419,9 +1682,9 @@ DifficultySetting{
 }
 @PART[BioMass_Red_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   //---artificial lighting---//
   MODULE{
     name = AnimatedGenerator
@@ -1757,9 +2020,9 @@ DifficultySetting{
 }
 @PART[BioMass_Algae_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   //---artificial lighting---//
   MODULE{
     name = AnimatedGenerator
@@ -2122,9 +2385,9 @@ DifficultySetting{
 }
 @PART[BioMass_Expanding_Greenhouse]
 {
-  -MODULE[ModuleResourceConverter]:HAS[#tag[ArtificialLighting]] {}
+  -MODULE[AnimatedGenerator]:HAS[#tag[ArtificialLighting]] {}
   -MODULE[ModuleResourceConverter]:HAS[#tag[lightRemover]] {}
-  -MODULE[ModuleResourceConverter]:HAS[#tag[Photosynthesis]] {}
+  -MODULE[BiologicalProcess]:HAS[#tag[Photosynthesis]] {}
   //---artificial lighting---//
   MODULE{
     name = AnimatedGenerator
@@ -2462,6 +2725,24 @@ DifficultySetting{
 
 
 //**********START RESOURCES****************************************************************************
+@PART[CO2RadialLong]{
+  -RESOURCE[CarbonDioxide]{}
+  RESOURCE
+  {
+    name = LqdCO2
+    amount = 40
+    maxAmount = 80
+  }
+}
+@PART[radialCO2Tank]{
+  -RESOURCE[CarbonDioxide]{}
+  RESOURCE
+  {
+    name = LqdCO2
+    amount = 20
+    maxAmount = 40
+  }
+}
 @PART[BioMass_BioReactor]
 {
   -RESOURCE[BioMass]{}
@@ -2618,14 +2899,8 @@ DifficultySetting{
   }
   RESOURCE
   {
-    name = Seeds
-    amount = 0.2
-    maxAmount = 2.0 //L
-  }
-  RESOURCE
-  {
     name = BioMass
-    amount = 0
+    amount = 0.45
     maxAmount = 0.902952766 //L
   }
   RESOURCE
@@ -2774,6 +3049,12 @@ DifficultySetting{
   -RESOURCE[Waste]{}
   RESOURCE
   {
+    name = Light
+    amount = 0.0
+    maxAmount = 1.0 //L
+  }
+  RESOURCE
+  {
     name = Oxygen
     amount = 0.0
     maxAmount = 101.120425 //L
@@ -2824,6 +3105,12 @@ DifficultySetting{
   -RESOURCE[Nutrients]{}
   -RESOURCE[Water]{}
   -RESOURCE[Waste]{}
+  RESOURCE
+  {
+    name = Light
+    amount = 0.0
+    maxAmount = 1.0 //L
+  }
   RESOURCE
   {
     name = Oxygen
@@ -2882,6 +3169,16 @@ DifficultySetting{
 
 //****Cryogenic Gas Seperator
 @PART[CryogenicAtmosphericSeperator]
+{
+  @category = Utility
+  @TechRequired=electrics
+}
+@PART[BioMass_CryogenicAtmosphericSeperator-R]
+{
+  @category = Utility
+  @TechRequired=electrics
+}
+@PART[BioMass_CryogenicAtmosphericSeperator-L]
 {
   @category = Utility
   @TechRequired=electrics

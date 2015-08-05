@@ -3,10 +3,21 @@ DifficultySetting{
 }
 
 //**********categories, visibility, descriptions, mass, rescale, tech required*********************
+@PART[BioMass_Gas_Storage_01]{
+   @category=Utility
+}
+@PART[BioMass_Gas_Storage_02]{
+   @category=Utility
+}
+@PART[BioMass_Gas_Storage_03]{
+   @category=Utility
+}
+
 @PART[BioMass_GasBleedValve]{
    @category=Utility
    @TechRequired=electrics
 }
+
 @PART[BioMass_RedGasRegulator]{
    @category=Utility
    @title=Gas Compressor: Hydrogen 
@@ -445,7 +456,7 @@ MODULE
         }
         OUTPUT_RESOURCE
         {
-            ResourceName = LiquidCO2
+            ResourceName = LqdCO2
             Ratio = 0.0010
             DumpExcess = false
             FlowMode = STAGE_PRIORITY_FLOW
@@ -473,7 +484,7 @@ MODULE
         }
         INPUT_RESOURCE
         {
-            ResourceName = LiquidCO2
+            ResourceName = LqdCO2
             Ratio = 0.010
             FlowMode = STAGE_PRIORITY_FLOW
         }
@@ -592,7 +603,7 @@ MODULE
 {
   -RESOURCE[CarbonDioxide]{}
   RESOURCE{
-    name = LiquidCO2
+    name = LqdCO2
     amount = 40
     maxAmount = 80
   }
@@ -601,7 +612,7 @@ MODULE
 {
   -RESOURCE[CarbonDioxide]{}
   RESOURCE{
-    name = LiquidCO2
+    name = LqdCO2
     amount = 20
     maxAmount = 40
   }
@@ -2715,10 +2726,22 @@ MODULE
 
 //**********START RESOURCES****************************************************************************
 @PART[CO2RadialLong]{
-  -RESOURCE[CarbonDioxide][]
+  -RESOURCE[CarbonDioxide]{}
+  RESOURCE
+  {
+    name = LqdCO2
+    amount = 40
+    maxAmount = 80
+  }
 }
 @PART[radialCO2Tank]{
-  -RESOURCE[CarbonDioxide][]
+  -RESOURCE[CarbonDioxide]{}
+  RESOURCE
+  {
+    name = LqdCO2
+    amount = 20
+    maxAmount = 40
+  }
 }
 @PART[BioMass_BioReactor]
 {
