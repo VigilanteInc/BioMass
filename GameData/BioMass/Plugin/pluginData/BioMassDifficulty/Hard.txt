@@ -176,7 +176,7 @@ DifficultySetting{
 @PART[BioMass_KoylentMachine]{
    @category=Utility
    @title=Koylent Maker
-   @description=When you are low on food and far from home things can look bleak. To stave off sure depression, DG Aero-Space has designed the Koylent Maker to supply all your food-on-the-go needs. Various vacuums and pistons combine biocake and seeds into a gastronomic delight DG Aero-Space calls "Koylent", though most just call it "food."
+   @description=When you are low on food and far from home things can look bleak. To stave off sure depression, DG Aero-Space has designed the Koylent Maker to supply all your food-on-the-go needs. Various vacuums and pistons combine biocake and seeds into a gastronomic delight DG Aero-Space calls "Koylent", though most just call it "food".
    @rescaleFactor=0.6
    @TechRequired=spaceAg
    @cost=1400
@@ -295,13 +295,13 @@ DifficultySetting{
       INPUT_RESOURCE
       {
           ResourceName = Hydrogen
-          Ratio = 0.98765432
+          Ratio = 9.8765432
           FlowMode = STAGE_PRIORITY_FLOW
       }
       OUTPUT_RESOURCE
       {
           ResourceName = MonoPropellant
-          Ratio = 0.00010000
+          Ratio = 0.0010000
           DumpExcess = false
           FlowMode = STAGE_PRIORITY_FLOW
        }
