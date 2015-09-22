@@ -15,6 +15,10 @@ Major reworking of how BioMass works:
 Lots of play balancing left to do!
 
 -------------------------------------
+###2015.0919 Fixed the volumes held by the food and seed storage containers. MUCH more storage now. Also fixed the left and right nodes on the food and seed storage containers
+
+###2015.0901 Added "wrapper tanks" to hold water. Useful for protecting crew from radiation. :)
+
 ###2015.0818 Pull requests merged (punctuation changes). Additional changes related to puncuation. Rest the hydrogen gas compressor to ~9877:1 MonoProp:H2Gas.
 
 ###2015.0805 Updated Alternate Resource Icons. Included a radial oxidizer tank on Medium and Hard. Included gas storage bags (roverdude's landing bags). This allows things to function on rails when not selected by providing places for gasses to actually be. Will only be in medium and hard. LiquidCO2 changed to LqdCO2 to comply with community resource pack. The Atmospheric extractor works on Kerbin and Duna (though there is a rate bug on the KSP side, I think).
