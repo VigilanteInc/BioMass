@@ -3,14 +3,31 @@ DifficultySetting{
 }
 
 //**********categories, visibility, descriptions, mass, rescale, tech required*********************
+@PART[WrapperTank-1]{
+  @category = FuelTank
+  @TechRequired=astroBiology
+}
+@PART[WrapperTank-2]{
+  @category = FuelTank
+  @TechRequired=spaceAg
+}
+@PART[WrapperTank-3]{
+  @category = FuelTank
+  @TechRequired=astroBiology
+}
+@PART[WrapperTank-4]{
+  @category = FuelTank
+  @TechRequired=astroBiology
+}
+
 @PART[BioMass_Gas_Storage_01]{
-   @category=Utility
+   @category=FuelTank
 }
 @PART[BioMass_Gas_Storage_02]{
-   @category=Utility
+   @category=FuelTank
 }
 @PART[BioMass_Gas_Storage_03]{
-   @category=Utility
+   @category=FuelTank
 }
 
 @PART[BioMass_GasBleedValve]{
@@ -119,7 +136,7 @@ DifficultySetting{
 
 
 @PART[OTankRound]{
-   @category=Utility
+   @category=FuelTank
    @title=Supply Tank: O2, Round
    @description=This roundified tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
    @rescaleFactor=1
@@ -127,10 +144,44 @@ DifficultySetting{
    @cost=450
    @manufacturer=Stodola, LLC.
    @mass=0.075
+    MODULE
+    {
+        name = ModuleResourceConverter
+        tag = ReleaseO2 //for moduleManager
+        ConverterName = Oxygen Release Valve
+        StartActionName = Open Valve
+        StopActionName = Close Valve
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 0.1
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = Oxidizer
+            Ratio = 0.010
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = Oxygen
+            Ratio = 7.777778
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+         }
+    }
 }
 
 @PART[OTankLong]{
-   @category=Utility
+   @category=FuelTank
    @title=Supply Tank: O2, Long
    @description=This tank is designed to hold oxygen gas. The chemist Kan Thomas van Kerbin reportedly went for walks with his family while breathing nothing but this gas from portable tanks to prove it improved one's vigour.
    @rescaleFactor=0.5
@@ -138,10 +189,44 @@ DifficultySetting{
    @cost=800
    @manufacturer=Stodola, LLC.
    @mass=0.15
+    MODULE
+    {
+        name = ModuleResourceConverter
+        tag = ReleaseO2 //for moduleManager
+        ConverterName = Oxygen Release Valve
+        StartActionName = Open Valve
+        StopActionName = Close Valve
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 0.1
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = Oxidizer
+            Ratio = 0.010
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = Oxygen
+            Ratio = 7.777778
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+         }
+    }
 }
 
 @PART[radialCO2Tank]{
-   @category=Utility
+   @category=FuelTank
    @title=Supply Tank: Compressed CO2, Round
    @description=This tank is designed to hold compressed carbon dioxide, the last of the gasses discovered by the famous chemist Kan Thomas van Kerbin. Who knows how many other gasses he would have discovered if he hadn't insisted on breathing nothing but this gas for 10 minutes to prove it was safe.
    @rescaleFactor=0.5
@@ -149,10 +234,44 @@ DifficultySetting{
    @cost=400
    @manufacturer=Stodola, LLC.
    @mass=0.075
+    MODULE
+    {
+        name = ModuleResourceConverter
+        tag = ReleaseCO2 //for moduleManager
+        ConverterName = CO2 Release Valve
+        StartActionName = Open Valve
+        StopActionName = Close Valve
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 0.1
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = LiquidCO2
+            Ratio = 0.010
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = CarbonDioxide
+            Ratio = 3.92
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+         }
+    }
 }
 
 @PART[CO2RadialLong]{
-   @category=Utility
+   @category=FuelTank
    @title=Supply Tank: Compressed CO2, Long
    @description=This tank is designed to hold compressed carbon dioxide, the last of the gasses discovered by the famous chemist Kan Thomas van Kerbin. There has been a great deal of speculation as to whether the CO2 is a liquid or a gas while in this tank. Most researchers believe it exists in both forms until you look, at which point something explodes.
    @rescaleFactor=0.5
@@ -160,10 +279,44 @@ DifficultySetting{
    @cost=800
    @manufacturer=Stodola, LLC.
    @mass=0.15
+    MODULE
+    {
+        name = ModuleResourceConverter
+        tag = ReleaseCO2 //for moduleManager
+        ConverterName = CO2 Release Valve
+        StartActionName = Open Valve
+        StopActionName = Close Valve
+        AutoShutdown = false
+        FillAmount = 1.0
+        GeneratesHeat = false
+        UseSpecialistBonus = true
+        SpecialistEfficiencyFactor = 0.2
+        SpecialistBonusBase = 0.05
+        Specialty = Engineer
+        EfficiencyBonus = 1
+        INPUT_RESOURCE
+        {
+            ResourceName = ElectricCharge
+            Ratio = 0.1
+        }
+        INPUT_RESOURCE
+        {
+            ResourceName = LiquidCO2
+            Ratio = 0.010
+            FlowMode = STAGE_PRIORITY_FLOW
+        }
+        OUTPUT_RESOURCE
+        {
+            ResourceName = CarbonDioxide
+            Ratio = 3.92
+            DumpExcess = false
+            FlowMode = STAGE_PRIORITY_FLOW
+         }
+    }
 }
 
 @PART[H2ORadialLong]{
-   @category=Utility
+   @category=FuelTank
    @title=Supply Tank: H2O
    @description=Nothing fancy. Just a tank designed to hold water. Heavy, heavy water.
    @rescaleFactor=1
@@ -632,7 +785,7 @@ MODULE
         AnimationName = exhaustPort
         AutoShutdown = false
         FillAmount = 1.0
-        AlwaysActive = false
+        AlwaysActive = true
         GeneratesHeat = false
         UseSpecialistBonus = true
         SpecialistEfficiencyFactor = 0.2
@@ -708,7 +861,7 @@ MODULE
         AnimationName = exhaustPort
         AutoShutdown = false
         FillAmount = 1.0
-        AlwaysActive = false
+        AlwaysActive = true
         GeneratesHeat = false
         UseSpecialistBonus = true
         SpecialistEfficiencyFactor = 0.2
@@ -1179,7 +1332,7 @@ MODULE
      StopActionName = Stop Respiration
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -1218,7 +1371,7 @@ MODULE
      StopActionName = Stop Photosynthesis
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -1267,7 +1420,7 @@ MODULE
      StopActionName = Stop Photosynthesis with WasteWater
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -1517,7 +1670,7 @@ MODULE
     StopActionName = Stop Respiration
     AutoShutdown = false
     FillAmount = 1.0
-    AlwaysActive = false
+    AlwaysActive = true
     GeneratesHeat = false
     UseSpecialistBonus = true
     SpecialistEfficiencyFactor = 0.2
@@ -1556,7 +1709,7 @@ MODULE
     StopActionName = Stop Photosynthesis
     AutoShutdown = false
     FillAmount = 1.0
-    AlwaysActive = false
+    AlwaysActive = true
     GeneratesHeat = false
     UseSpecialistBonus = true
     SpecialistEfficiencyFactor = 0.2
@@ -1605,7 +1758,7 @@ MODULE
     StopActionName = Stop Photosynthesis with WasteWater
     AutoShutdown = false
     FillAmount = 1.0
-    AlwaysActive = false
+    AlwaysActive = true
     GeneratesHeat = false
     UseSpecialistBonus = true
     SpecialistEfficiencyFactor = 0.2
@@ -1855,7 +2008,7 @@ MODULE
      StopActionName = Stop Respiration
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -1894,7 +2047,7 @@ MODULE
      StopActionName = Stop Photosynthesis
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -1943,7 +2096,7 @@ MODULE
      StopActionName = Stop Photosynthesis with WasteWater
      AutoShutdown = false
      FillAmount = 1.0
-     AlwaysActive = false
+     AlwaysActive = true
      GeneratesHeat = false
      UseSpecialistBonus = true
      SpecialistEfficiencyFactor = 0.2
@@ -2204,7 +2357,7 @@ MODULE
     StopActionName = Stop Respiration
     AutoShutdown = false
     FillAmount = 1.0
-    AlwaysActive = false
+    AlwaysActive = true
     GeneratesHeat = false
     UseSpecialistBonus = true
     SpecialistEfficiencyFactor = 0.2
@@ -2243,7 +2396,7 @@ MODULE
     StopActionName = Stop Photosynthesis
     AutoShutdown = false
     FillAmount = 1.0
-    AlwaysActive = false
+    AlwaysActive = true
     GeneratesHeat = false
     UseSpecialistBonus = true
     SpecialistEfficiencyFactor = 0.2
@@ -2298,7 +2451,7 @@ MODULE
     StopActionName = Stop Photosynthesis with WasteWater
     AutoShutdown = false
     FillAmount = 1.0
-    AlwaysActive = false
+    AlwaysActive = true
     GeneratesHeat = false
     UseSpecialistBonus = true
     SpecialistEfficiencyFactor = 0.2
@@ -2558,7 +2711,7 @@ MODULE
     StopActionName = Stop Respiration
     AutoShutdown = false
     FillAmount = 1.0
-    AlwaysActive = false
+    AlwaysActive = true
     GeneratesHeat = false
     UseSpecialistBonus = true
     SpecialistEfficiencyFactor = 0.2
@@ -2597,7 +2750,7 @@ MODULE
     StopActionName = Stop Photosynthesis
     AutoShutdown = false
     FillAmount = 1.0
-    AlwaysActive = false
+    AlwaysActive = true
     GeneratesHeat = false
     UseSpecialistBonus = true
     SpecialistEfficiencyFactor = 0.2
@@ -2646,7 +2799,7 @@ MODULE
     StopActionName = Stop Photosynthesis with WasteWater
     AutoShutdown = false
     FillAmount = 1.0
-    AlwaysActive = false
+    AlwaysActive = true
     GeneratesHeat = false
     UseSpecialistBonus = true
     SpecialistEfficiencyFactor = 0.2

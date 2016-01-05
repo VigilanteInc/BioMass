@@ -15,7 +15,10 @@ Major reworking of how BioMass works:
 Lots of play balancing left to do!
 
 -------------------------------------
+###2016.0104 Removed the testing flags so greenhouses didn't have an absurd number of buttons. Minor tweaks to all greenhouses on hard. KNOWN BUG: greenhouse lights don't actually light
+
 ###2015.1005 Adjusted the volume of water held by the blue radially mounted tank to 180L. Set up resources so they tell the alternate resource panel the units to use (kilograms, tonnes, liters)
+
 ###2015.0919 Fixed the volumes held by the food and seed storage containers. MUCH more storage now. Also fixed the left and right nodes on the food and seed storage containers
 
 ###2015.0901 Added "wrapper tanks" to hold water. Useful for protecting crew from radiation. :)

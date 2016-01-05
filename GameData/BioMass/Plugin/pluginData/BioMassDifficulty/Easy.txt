@@ -333,7 +333,7 @@ DifficultySetting{
       StopActionName = Stop Waste Breakdown
       AutoShutdown = false
       FillAmount = 1.0
-      AlwaysActive = false
+      AlwaysActive = true
       GeneratesHeat = false
       UseSpecialistBonus = true
       SpecialistEfficiencyFactor = 0.2
@@ -366,7 +366,7 @@ DifficultySetting{
       StopActionName = Stop Nutrient Output
       AutoShutdown = false
       FillAmount = 1.0
-      AlwaysActive = false
+      AlwaysActive = true
       GeneratesHeat = false
       UseSpecialistBonus = true
       SpecialistEfficiencyFactor = 0.2
